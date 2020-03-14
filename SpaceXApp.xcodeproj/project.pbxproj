@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5184F1E241CD21800C7931F /* SpaceXLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F1D241CD21800C7931F /* SpaceXLaunch.swift */; };
+		B5184F20241CD6D600C7931F /* SpaceXRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F1F241CD6D600C7931F /* SpaceXRocket.swift */; };
+		B5184F22241CD7A200C7931F /* SpaceXRocketFirstStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F21241CD7A200C7931F /* SpaceXRocketFirstStage.swift */; };
+		B5184F24241CD80500C7931F /* SpaceXRocketFirstStageCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F23241CD80500C7931F /* SpaceXRocketFirstStageCore.swift */; };
+		B5184F26241CDA1F00C7931F /* SpaceXRocketSecondStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F25241CDA1F00C7931F /* SpaceXRocketSecondStage.swift */; };
+		B5184F28241CDA9C00C7931F /* SpaceXRocketSecondStagePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F27241CDA9C00C7931F /* SpaceXRocketSecondStagePayload.swift */; };
+		B5184F2A241CDC3100C7931F /* SpaceXRocketSecondStagePayloadOrbitParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F29241CDC3100C7931F /* SpaceXRocketSecondStagePayloadOrbitParams.swift */; };
+		B5184F2C241CDF6000C7931F /* SpaceXRocketFairings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F2B241CDF6000C7931F /* SpaceXRocketFairings.swift */; };
+		B5184F2E241CE09900C7931F /* SpaceXLaunchTelemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F2D241CE09900C7931F /* SpaceXLaunchTelemetry.swift */; };
+		B5184F30241CE12500C7931F /* SpaceXLaunchSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F2F241CE12500C7931F /* SpaceXLaunchSite.swift */; };
+		B5184F32241CE20200C7931F /* SpaceXLaunchLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F31241CE20200C7931F /* SpaceXLaunchLinks.swift */; };
+		B5184F34241CE45A00C7931F /* SpaceXLaunchTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F33241CE45A00C7931F /* SpaceXLaunchTimeline.swift */; };
 		B5F9F795241C0F8C00CADA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9F794241C0F8C00CADA76 /* AppDelegate.swift */; };
 		B5F9F797241C0F8C00CADA76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9F796241C0F8C00CADA76 /* SceneDelegate.swift */; };
 		B5F9F799241C0F8C00CADA76 /* LatestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9F798241C0F8C00CADA76 /* LatestViewController.swift */; };
@@ -17,6 +29,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5184F1D241CD21800C7931F /* SpaceXLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunch.swift; sourceTree = "<group>"; };
+		B5184F1F241CD6D600C7931F /* SpaceXRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXRocket.swift; sourceTree = "<group>"; };
+		B5184F21241CD7A200C7931F /* SpaceXRocketFirstStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXRocketFirstStage.swift; sourceTree = "<group>"; };
+		B5184F23241CD80500C7931F /* SpaceXRocketFirstStageCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXRocketFirstStageCore.swift; sourceTree = "<group>"; };
+		B5184F25241CDA1F00C7931F /* SpaceXRocketSecondStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXRocketSecondStage.swift; sourceTree = "<group>"; };
+		B5184F27241CDA9C00C7931F /* SpaceXRocketSecondStagePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXRocketSecondStagePayload.swift; sourceTree = "<group>"; };
+		B5184F29241CDC3100C7931F /* SpaceXRocketSecondStagePayloadOrbitParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXRocketSecondStagePayloadOrbitParams.swift; sourceTree = "<group>"; };
+		B5184F2B241CDF6000C7931F /* SpaceXRocketFairings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXRocketFairings.swift; sourceTree = "<group>"; };
+		B5184F2D241CE09900C7931F /* SpaceXLaunchTelemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchTelemetry.swift; sourceTree = "<group>"; };
+		B5184F2F241CE12500C7931F /* SpaceXLaunchSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchSite.swift; sourceTree = "<group>"; };
+		B5184F31241CE20200C7931F /* SpaceXLaunchLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchLinks.swift; sourceTree = "<group>"; };
+		B5184F33241CE45A00C7931F /* SpaceXLaunchTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchTimeline.swift; sourceTree = "<group>"; };
 		B5F9F791241C0F8C00CADA76 /* SpaceXApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F9F794241C0F8C00CADA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5F9F796241C0F8C00CADA76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +63,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5184F35241CFAA300C7931F /* SpaceX Launch */ = {
+			isa = PBXGroup;
+			children = (
+				B5184F1D241CD21800C7931F /* SpaceXLaunch.swift */,
+				B5184F2D241CE09900C7931F /* SpaceXLaunchTelemetry.swift */,
+				B5184F2F241CE12500C7931F /* SpaceXLaunchSite.swift */,
+				B5184F31241CE20200C7931F /* SpaceXLaunchLinks.swift */,
+				B5184F33241CE45A00C7931F /* SpaceXLaunchTimeline.swift */,
+			);
+			path = "SpaceX Launch";
+			sourceTree = "<group>";
+		};
+		B5184F36241CFACB00C7931F /* SpaceX Rocket */ = {
+			isa = PBXGroup;
+			children = (
+				B5184F1F241CD6D600C7931F /* SpaceXRocket.swift */,
+				B5184F21241CD7A200C7931F /* SpaceXRocketFirstStage.swift */,
+				B5184F23241CD80500C7931F /* SpaceXRocketFirstStageCore.swift */,
+				B5184F25241CDA1F00C7931F /* SpaceXRocketSecondStage.swift */,
+				B5184F27241CDA9C00C7931F /* SpaceXRocketSecondStagePayload.swift */,
+				B5184F29241CDC3100C7931F /* SpaceXRocketSecondStagePayloadOrbitParams.swift */,
+				B5184F2B241CDF6000C7931F /* SpaceXRocketFairings.swift */,
+			);
+			path = "SpaceX Rocket";
+			sourceTree = "<group>";
+		};
 		B5F9F788241C0F8C00CADA76 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +123,8 @@
 		B5F9F7A8241C187D00CADA76 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B5184F35241CFAA300C7931F /* SpaceX Launch */,
+				B5184F36241CFACB00C7931F /* SpaceX Rocket */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,8 +234,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5184F32241CE20200C7931F /* SpaceXLaunchLinks.swift in Sources */,
+				B5184F2C241CDF6000C7931F /* SpaceXRocketFairings.swift in Sources */,
+				B5184F1E241CD21800C7931F /* SpaceXLaunch.swift in Sources */,
+				B5184F30241CE12500C7931F /* SpaceXLaunchSite.swift in Sources */,
+				B5184F20241CD6D600C7931F /* SpaceXRocket.swift in Sources */,
+				B5184F28241CDA9C00C7931F /* SpaceXRocketSecondStagePayload.swift in Sources */,
 				B5F9F799241C0F8C00CADA76 /* LatestViewController.swift in Sources */,
+				B5184F24241CD80500C7931F /* SpaceXRocketFirstStageCore.swift in Sources */,
+				B5184F26241CDA1F00C7931F /* SpaceXRocketSecondStage.swift in Sources */,
+				B5184F22241CD7A200C7931F /* SpaceXRocketFirstStage.swift in Sources */,
+				B5184F34241CE45A00C7931F /* SpaceXLaunchTimeline.swift in Sources */,
+				B5184F2E241CE09900C7931F /* SpaceXLaunchTelemetry.swift in Sources */,
 				B5F9F795241C0F8C00CADA76 /* AppDelegate.swift in Sources */,
+				B5184F2A241CDC3100C7931F /* SpaceXRocketSecondStagePayloadOrbitParams.swift in Sources */,
 				B5F9F797241C0F8C00CADA76 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
