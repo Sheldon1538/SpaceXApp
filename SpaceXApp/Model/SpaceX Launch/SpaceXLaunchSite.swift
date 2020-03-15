@@ -14,8 +14,8 @@ struct SpaceXLaunchSite: Codable {
     let siteNameLong: String?
     
     enum CodingKeys: String, CodingKey {
-        case siteID =       "site_id"
-        case siteName =     "site_name"
+        case siteID       = "site_id"
+        case siteName     =  "site_name"
         case siteNameLong = "site_name_long"
     }
 }

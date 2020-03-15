@@ -13,7 +13,7 @@ struct SpaceXRocketSecondStage: Codable {
     let payloads: [SpaceXRocketSecondStagePayload?]
     
     enum CodingKeys: String, CodingKey {
-        case block =    "block"
+        case block    = "block"
         case payloads = "payloads"
     }
 }

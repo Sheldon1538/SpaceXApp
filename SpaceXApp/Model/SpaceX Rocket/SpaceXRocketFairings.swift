@@ -12,12 +12,12 @@ struct SpaceXRocketFairings: Codable {
     let reused:          Bool?
     let recoveryAttempt: Bool?
     let recovered:       Bool?
-    let ship:            Bool?
+    let ship:            String?
     
     enum CodingKeys: String, CodingKey {
-        case reused =          "reused"
+        case reused          = "reused"
         case recoveryAttempt = "recovery_attempt"
-        case recovered =       "recovered"
-        case ship =            "ship"
+        case recovered       = "recovered"
+        case ship            = "ship"
     }
 }

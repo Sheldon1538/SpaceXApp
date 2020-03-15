@@ -11,7 +11,7 @@ import Foundation
 class NetworkManager {
     static var shared = NetworkManager()
     
-    public func sendRequest(urlString: String, completion: @escaping(Result<Data, Error>) -> Void) {
+    public func loadData(urlString: String, completion: @escaping(Result<Data, Error>) -> Void) {
         let url = URL(string: urlString)
         guard let urlForRequest = url else { return }
         URLSession.shared.dataTask(with: urlForRequest) { (data, urlResponse, error) in

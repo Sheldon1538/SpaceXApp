@@ -17,7 +17,7 @@ struct SpaceXRocketSecondStagePayload: Codable {
     let nationality:     String?
     let manufacturer:    String?
     let payloadType:     String?
-    let payloadMassKG:   Int?
+    let payloadMassKG:   Double?
     let payloadMassLBS:  Double?
     let orbit:           String?
     let orbitParams:     SpaceXRocketSecondStagePayloadOrbitParams?
@@ -27,21 +27,21 @@ struct SpaceXRocketSecondStagePayload: Codable {
     let cargoManifest:   String?
     
     enum CodingKeys: String, CodingKey {
-        case payloadID =       "payload_id"
-        case noradID =         "norad_id"
-        case capSerial =       "cap_serial"
-        case reused =          "reused"
-        case customers =       "customers"
-        case nationality =     "nationality"
-        case manufacturer =    "manufacturer"
-        case payloadType =     "payload_type"
-        case payloadMassKG =   "payload_mass_kg"
-        case payloadMassLBS =  "payload_mass_lbs"
-        case orbit =           "orbit"
-        case orbitParams =     "orbit_params"
-        case massReturnedKG =  "mass_returned_kg"
+        case payloadID       = "payload_id"
+        case noradID         = "norad_id"
+        case capSerial       = "cap_serial"
+        case reused          = "reused"
+        case customers       = "customers"
+        case nationality     = "nationality"
+        case manufacturer    = "manufacturer"
+        case payloadType     = "payload_type"
+        case payloadMassKG   = "payload_mass_kg"
+        case payloadMassLBS  = "payload_mass_lbs"
+        case orbit           = "orbit"
+        case orbitParams     = "orbit_params"
+        case massReturnedKG  = "mass_returned_kg"
         case massReturnedLBS = "mass_returned_lbs"
-        case flightTimeSEC =   "flight_time_sec"
-        case cargoManifest =   "cargo_manifest"
+        case flightTimeSEC   = "flight_time_sec"
+        case cargoManifest   = "cargo_manifest"
     }
 }

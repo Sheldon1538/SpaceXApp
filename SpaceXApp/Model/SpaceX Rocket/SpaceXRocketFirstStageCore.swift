@@ -21,15 +21,15 @@ struct SpaceXRocketFirstStageCore: Codable {
     let landingVehicle: String?
     
     enum CodingKeys: String, CodingKey {
-        case coreSerial =     "core_serial"
-        case flight =         "flight"
-        case block =          "block"
-        case gridfins =       "gridfins"
-        case legs =           "legs"
-        case reused =         "reused"
-        case landSuccess =    "land_success"
-        case landingIntent =  "landing_intent"
-        case landingType =    "landing_type"
+        case coreSerial     = "core_serial"
+        case flight         = "flight"
+        case block          = "block"
+        case gridfins       = "gridfins"
+        case legs           = "legs"
+        case reused         = "reused"
+        case landSuccess    = "land_success"
+        case landingIntent  = "landing_intent"
+        case landingType    = "landing_type"
         case landingVehicle = "landing_vehicle"
     }
 }

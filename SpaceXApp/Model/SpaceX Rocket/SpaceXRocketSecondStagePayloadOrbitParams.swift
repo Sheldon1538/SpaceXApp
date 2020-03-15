@@ -18,7 +18,7 @@ struct SpaceXRocketSecondStagePayloadOrbitParams: Codable {
     let apoapsisKM:      Double?
     let inclinationDEG:  Double?
     let periodMin:       Double?
-    let lifespanYears:   Int?
+    let lifespanYears:   Double?
     let epoch:           String?
     let meanMotion:      Double?
     let raan:            Double?
@@ -27,19 +27,19 @@ struct SpaceXRocketSecondStagePayloadOrbitParams: Codable {
     
     enum CodingKeys: String, CodingKey {
         case referenceSystem = "reference_system"
-        case regime =          "regime"
-        case longitude =       "longitude"
-        case semiMajorAxiKM =  "semi_major_axis_km"
-        case eccentricity =    "eccentricity"
-        case periapsisKM =     "periapsis_km"
-        case apoapsisKM =      "apoapsis_km"
-        case inclinationDEG =  "inclination_deg"
-        case periodMin =       "period_min"
-        case lifespanYears =   "lifespan_years"
-        case epoch =           "epoch"
-        case meanMotion =      "mean_motion"
-        case raan =            "raan"
+        case regime          = "regime"
+        case longitude       = "longitude"
+        case semiMajorAxiKM  = "semi_major_axis_km"
+        case eccentricity    = "eccentricity"
+        case periapsisKM     = "periapsis_km"
+        case apoapsisKM      = "apoapsis_km"
+        case inclinationDEG  = "inclination_deg"
+        case periodMin       = "period_min"
+        case lifespanYears   = "lifespan_years"
+        case epoch           = "epoch"
+        case meanMotion      = "mean_motion"
+        case raan            = "raan"
         case argOfPericenter = "arg_of_pericenter"
-        case meanAnomaly =     "mean_anomaly"
+        case meanAnomaly     = "mean_anomaly"
     }
 }
