@@ -10,6 +10,7 @@
         <scene sceneID="gJN-pD-zWc">
             <objects>
                 <tabBarController id="5gR-He-LOn" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="uAL-rA-gZG"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JRM-pM-tNG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -23,11 +24,11 @@
             </objects>
             <point key="canvasLocation" x="-335" y="110"/>
         </scene>
-        <!--LatestViewController-->
+        <!--LaunchesViewController-->
         <scene sceneID="gix-j7-O4i">
             <objects>
-                <viewControllerPlaceholder storyboardName="LatestViewController" id="VTv-GK-R96" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Latest" image="bolt.fill" catalog="system" id="ZoN-Hw-sR1"/>
+                <viewControllerPlaceholder storyboardName="LaunchesViewController" id="VTv-GK-R96" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Launches" image="bolt.fill" catalog="system" id="ZoN-Hw-sR1"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gA8-TI-Eeb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

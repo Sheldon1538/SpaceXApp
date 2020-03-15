@@ -9,11 +9,11 @@
 import Foundation
 
 struct SpaceXRocketSecondStage: Codable {
-    let block: Int?
+    let block:    Int?
     let payloads: [SpaceXRocketSecondStagePayload?]
     
     enum CodingKeys: String, CodingKey {
-        case block = "block"
+        case block =    "block"
         case payloads = "payloads"
     }
 }

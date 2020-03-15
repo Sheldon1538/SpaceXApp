@@ -19,10 +19,14 @@
 		B5184F30241CE12500C7931F /* SpaceXLaunchSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F2F241CE12500C7931F /* SpaceXLaunchSite.swift */; };
 		B5184F32241CE20200C7931F /* SpaceXLaunchLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F31241CE20200C7931F /* SpaceXLaunchLinks.swift */; };
 		B5184F34241CE45A00C7931F /* SpaceXLaunchTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F33241CE45A00C7931F /* SpaceXLaunchTimeline.swift */; };
+		B5184F3A241D348500C7931F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F39241D348500C7931F /* NetworkManager.swift */; };
+		B5184F3C241D44A300C7931F /* SpaceXAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F3B241D44A300C7931F /* SpaceXAPIManager.swift */; };
+		B5184F40241D4DFC00C7931F /* SpaceXAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F3F241D4DFC00C7931F /* SpaceXAPIData.swift */; };
+		B5184F44241D816C00C7931F /* LaunchPreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F43241D816C00C7931F /* LaunchPreviewCollectionViewCell.swift */; };
 		B5F9F795241C0F8C00CADA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9F794241C0F8C00CADA76 /* AppDelegate.swift */; };
 		B5F9F797241C0F8C00CADA76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9F796241C0F8C00CADA76 /* SceneDelegate.swift */; };
-		B5F9F799241C0F8C00CADA76 /* LatestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9F798241C0F8C00CADA76 /* LatestViewController.swift */; };
-		B5F9F79C241C0F8C00CADA76 /* LatestViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F9F79A241C0F8C00CADA76 /* LatestViewController.storyboard */; };
+		B5F9F799241C0F8C00CADA76 /* LaunchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9F798241C0F8C00CADA76 /* LaunchesViewController.swift */; };
+		B5F9F79C241C0F8C00CADA76 /* LaunchesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F9F79A241C0F8C00CADA76 /* LaunchesViewController.storyboard */; };
 		B5F9F79E241C0F8F00CADA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F9F79D241C0F8F00CADA76 /* Assets.xcassets */; };
 		B5F9F7A1241C0F8F00CADA76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F9F79F241C0F8F00CADA76 /* LaunchScreen.storyboard */; };
 		B5F9F7AE241C1A1100CADA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F9F7AD241C1A1100CADA76 /* Main.storyboard */; };
@@ -41,11 +45,15 @@
 		B5184F2F241CE12500C7931F /* SpaceXLaunchSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchSite.swift; sourceTree = "<group>"; };
 		B5184F31241CE20200C7931F /* SpaceXLaunchLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchLinks.swift; sourceTree = "<group>"; };
 		B5184F33241CE45A00C7931F /* SpaceXLaunchTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchTimeline.swift; sourceTree = "<group>"; };
+		B5184F39241D348500C7931F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B5184F3B241D44A300C7931F /* SpaceXAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXAPIManager.swift; sourceTree = "<group>"; };
+		B5184F3F241D4DFC00C7931F /* SpaceXAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXAPIData.swift; sourceTree = "<group>"; };
+		B5184F43241D816C00C7931F /* LaunchPreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5F9F791241C0F8C00CADA76 /* SpaceXApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F9F794241C0F8C00CADA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5F9F796241C0F8C00CADA76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B5F9F798241C0F8C00CADA76 /* LatestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestViewController.swift; sourceTree = "<group>"; };
-		B5F9F79B241C0F8C00CADA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LatestViewController.storyboard; sourceTree = "<group>"; };
+		B5F9F798241C0F8C00CADA76 /* LaunchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewController.swift; sourceTree = "<group>"; };
+		B5F9F79B241C0F8C00CADA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchesViewController.storyboard; sourceTree = "<group>"; };
 		B5F9F79D241C0F8F00CADA76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5F9F7A0241C0F8F00CADA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5F9F7A2241C0F8F00CADA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,6 +97,47 @@
 			path = "SpaceX Rocket";
 			sourceTree = "<group>";
 		};
+		B5184F37241D345D00C7931F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B5184F38241D347600C7931F /* Network manager */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		B5184F38241D347600C7931F /* Network manager */ = {
+			isa = PBXGroup;
+			children = (
+				B5184F39241D348500C7931F /* NetworkManager.swift */,
+				B5184F3B241D44A300C7931F /* SpaceXAPIManager.swift */,
+			);
+			path = "Network manager";
+			sourceTree = "<group>";
+		};
+		B5184F3E241D4DD800C7931F /* API data */ = {
+			isa = PBXGroup;
+			children = (
+				B5184F3F241D4DFC00C7931F /* SpaceXAPIData.swift */,
+			);
+			path = "API data";
+			sourceTree = "<group>";
+		};
+		B5184F41241D7A3600C7931F /* UICollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				B5184F42241D7A4200C7931F /* Launch preview */,
+			);
+			path = UICollectionViewCells;
+			sourceTree = "<group>";
+		};
+		B5184F42241D7A4200C7931F /* Launch preview */ = {
+			isa = PBXGroup;
+			children = (
+				B5184F43241D816C00C7931F /* LaunchPreviewCollectionViewCell.swift */,
+			);
+			path = "Launch preview";
+			sourceTree = "<group>";
+		};
 		B5F9F788241C0F8C00CADA76 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +157,7 @@
 		B5F9F793241C0F8C00CADA76 /* SpaceXApp */ = {
 			isa = PBXGroup;
 			children = (
+				B5184F37241D345D00C7931F /* Networking */,
 				B5F9F7A8241C187D00CADA76 /* Model */,
 				B5F9F7A9241C188900CADA76 /* View */,
 				B5F9F7AA241C189300CADA76 /* Controller */,
@@ -123,6 +173,7 @@
 		B5F9F7A8241C187D00CADA76 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B5184F3E241D4DD800C7931F /* API data */,
 				B5184F35241CFAA300C7931F /* SpaceX Launch */,
 				B5184F36241CFACB00C7931F /* SpaceX Rocket */,
 			);
@@ -132,6 +183,7 @@
 		B5F9F7A9241C188900CADA76 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B5184F41241D7A3600C7931F /* UICollectionViewCells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -148,8 +200,8 @@
 		B5F9F7AB241C18A600CADA76 /* LatestNews */ = {
 			isa = PBXGroup;
 			children = (
-				B5F9F798241C0F8C00CADA76 /* LatestViewController.swift */,
-				B5F9F79A241C0F8C00CADA76 /* LatestViewController.storyboard */,
+				B5F9F798241C0F8C00CADA76 /* LaunchesViewController.swift */,
+				B5F9F79A241C0F8C00CADA76 /* LaunchesViewController.storyboard */,
 			);
 			path = LatestNews;
 			sourceTree = "<group>";
@@ -222,7 +274,7 @@
 			files = (
 				B5F9F7A1241C0F8F00CADA76 /* LaunchScreen.storyboard in Resources */,
 				B5F9F79E241C0F8F00CADA76 /* Assets.xcassets in Resources */,
-				B5F9F79C241C0F8C00CADA76 /* LatestViewController.storyboard in Resources */,
+				B5F9F79C241C0F8C00CADA76 /* LaunchesViewController.storyboard in Resources */,
 				B5F9F7AE241C1A1100CADA76 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,11 +288,15 @@
 			files = (
 				B5184F32241CE20200C7931F /* SpaceXLaunchLinks.swift in Sources */,
 				B5184F2C241CDF6000C7931F /* SpaceXRocketFairings.swift in Sources */,
+				B5184F40241D4DFC00C7931F /* SpaceXAPIData.swift in Sources */,
 				B5184F1E241CD21800C7931F /* SpaceXLaunch.swift in Sources */,
 				B5184F30241CE12500C7931F /* SpaceXLaunchSite.swift in Sources */,
+				B5184F3C241D44A300C7931F /* SpaceXAPIManager.swift in Sources */,
+				B5184F3A241D348500C7931F /* NetworkManager.swift in Sources */,
+				B5184F44241D816C00C7931F /* LaunchPreviewCollectionViewCell.swift in Sources */,
 				B5184F20241CD6D600C7931F /* SpaceXRocket.swift in Sources */,
 				B5184F28241CDA9C00C7931F /* SpaceXRocketSecondStagePayload.swift in Sources */,
-				B5F9F799241C0F8C00CADA76 /* LatestViewController.swift in Sources */,
+				B5F9F799241C0F8C00CADA76 /* LaunchesViewController.swift in Sources */,
 				B5184F24241CD80500C7931F /* SpaceXRocketFirstStageCore.swift in Sources */,
 				B5184F26241CDA1F00C7931F /* SpaceXRocketSecondStage.swift in Sources */,
 				B5184F22241CD7A200C7931F /* SpaceXRocketFirstStage.swift in Sources */,
@@ -255,12 +311,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B5F9F79A241C0F8C00CADA76 /* LatestViewController.storyboard */ = {
+		B5F9F79A241C0F8C00CADA76 /* LaunchesViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B5F9F79B241C0F8C00CADA76 /* Base */,
 			);
-			name = LatestViewController.storyboard;
+			name = LaunchesViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		B5F9F79F241C0F8F00CADA76 /* LaunchScreen.storyboard */ = {

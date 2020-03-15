@@ -9,19 +9,19 @@
 import Foundation
 
 struct SpaceXRocket: Codable {
-    let rocketID: String?
-    let rocketName: String?
-    let rocketType: String?
-    let firstStage: SpaceXRocketFirstStage?
+    let rocketID:    String?
+    let rocketName:  String?
+    let rocketType:  String?
+    let firstStage:  SpaceXRocketFirstStage?
     let secondStage: SpaceXRocketSecondStage?
-    let fairings: SpaceXRocketFairings?
+    let fairings:    SpaceXRocketFairings?
     
     enum CodingKeys: String, CodingKey {
-        case rocketID = "rocket_id"
-        case rocketName = "rocket_name"
-        case rocketType = "rocket_type"
-        case firstStage = "first_stage"
+        case rocketID =    "rocket_id"
+        case rocketName =  "rocket_name"
+        case rocketType =  "rocket_type"
+        case firstStage =  "first_stage"
         case secondStage = "second_stage"
-        case fairings = "fairings"
+        case fairings =    "fairings"
     }
 }
