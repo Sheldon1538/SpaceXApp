@@ -22,7 +22,6 @@ class SpaceXAPIManager {
                     completion(.failure(parseError))
                 }
             case .failure(let error):
-                print(error.localizedDescription)
                 completion(.failure(error))
             }
         }
