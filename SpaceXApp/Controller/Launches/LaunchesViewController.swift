@@ -44,7 +44,7 @@ class LaunchesViewController: UIViewController {
     
     func loadLaunches() {
         let url = SpaceXGetLaunchesURL(offset: launchesPaginationOffset).getURL()
-        SpaceXAPIManager.shared.fetch(url: url, type: SpaceXLaunch.self) { (result) in
+        SpaceXAPIManager.shared.fetch(url: url, type: [SpaceXLaunch].self) { (result) in
             switch result {
             case .success(let launches):
                 if launches.isEmpty {

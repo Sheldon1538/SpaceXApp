@@ -11,12 +11,12 @@ import Foundation
 class SpaceXAPIManager {
     static var shared = SpaceXAPIManager()
     
-    func fetch<T: Codable>(url: String, type: T.Type, completion: @escaping(Result<[T], Error>) -> Void) {
+    func fetch<T: Codable>(url: String, type: T.Type, completion: @escaping(Result<T, Error>) -> Void) {
         NetworkManager.shared.loadData(urlString: url) { (result) in
             switch result {
             case .success(let data):
                 do {
-                    let launches = try JSONDecoder().decode([T].self, from: data)
+                    let launches = try JSONDecoder().decode(T.self, from: data)
                     completion(.success(launches))
                 } catch let parseError {
                     completion(.failure(parseError))
