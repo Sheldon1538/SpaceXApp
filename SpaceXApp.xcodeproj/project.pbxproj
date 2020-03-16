@@ -28,8 +28,8 @@
 		B5184F50241EBB7A00C7931F /* DateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F4F241EBB7A00C7931F /* DateFormats.swift */; };
 		B5184F53241ECF4700C7931F /* DetailedLaunchInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F52241ECF4700C7931F /* DetailedLaunchInformationViewController.swift */; };
 		B5184F55241ECF6900C7931F /* DetailedLaunchInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5184F54241ECF6900C7931F /* DetailedLaunchInformation.storyboard */; };
-		B5184F57241F727D00C7931F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F56241F727D00C7931F /* UIViewExtension.swift */; };
-		B5184F59241F772400C7931F /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F58241F772400C7931F /* DateExtension.swift */; };
+		B5184F57241F727D00C7931F /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F56241F727D00C7931F /* UIView + Extension.swift */; };
+		B5184F59241F772400C7931F /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F58241F772400C7931F /* Date + Extension.swift */; };
 		B5184F5C241F79DE00C7931F /* LaunchInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F5B241F79DE00C7931F /* LaunchInfoTableViewCell.swift */; };
 		B5184F5E241F7F9A00C7931F /* LaunchInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5184F5D241F7F9A00C7931F /* LaunchInfoTableViewCell.xib */; };
 		B5F9F795241C0F8C00CADA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9F794241C0F8C00CADA76 /* AppDelegate.swift */; };
@@ -62,8 +62,8 @@
 		B5184F4F241EBB7A00C7931F /* DateFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormats.swift; sourceTree = "<group>"; };
 		B5184F52241ECF4700C7931F /* DetailedLaunchInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedLaunchInformationViewController.swift; sourceTree = "<group>"; };
 		B5184F54241ECF6900C7931F /* DetailedLaunchInformation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailedLaunchInformation.storyboard; sourceTree = "<group>"; };
-		B5184F56241F727D00C7931F /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		B5184F58241F772400C7931F /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		B5184F56241F727D00C7931F /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		B5184F58241F772400C7931F /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
 		B5184F5B241F79DE00C7931F /* LaunchInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInfoTableViewCell.swift; sourceTree = "<group>"; };
 		B5184F5D241F7F9A00C7931F /* LaunchInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchInfoTableViewCell.xib; sourceTree = "<group>"; };
 		B5F9F791241C0F8C00CADA76 /* SpaceXApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,8 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				B5184F4F241EBB7A00C7931F /* DateFormats.swift */,
-				B5184F56241F727D00C7931F /* UIViewExtension.swift */,
-				B5184F58241F772400C7931F /* DateExtension.swift */,
+				B5184F56241F727D00C7931F /* UIView + Extension.swift */,
+				B5184F58241F772400C7931F /* Date + Extension.swift */,
 				B5F9F794241C0F8C00CADA76 /* AppDelegate.swift */,
 				B5F9F796241C0F8C00CADA76 /* SceneDelegate.swift */,
 				B5F9F7A2241C0F8F00CADA76 /* Info.plist */,
@@ -341,13 +341,13 @@
 				B5184F1E241CD21800C7931F /* SpaceXLaunch.swift in Sources */,
 				B5184F30241CE12500C7931F /* SpaceXLaunchSite.swift in Sources */,
 				B5184F3C241D44A300C7931F /* SpaceXAPIManager.swift in Sources */,
-				B5184F57241F727D00C7931F /* UIViewExtension.swift in Sources */,
+				B5184F57241F727D00C7931F /* UIView + Extension.swift in Sources */,
 				B5184F3A241D348500C7931F /* NetworkManager.swift in Sources */,
 				B5184F5C241F79DE00C7931F /* LaunchInfoTableViewCell.swift in Sources */,
 				B5184F4D241E7ED100C7931F /* SpaceXGetLaunchesURL.swift in Sources */,
 				B5184F44241D816C00C7931F /* LaunchPreviewCollectionViewCell.swift in Sources */,
 				B5184F20241CD6D600C7931F /* SpaceXRocket.swift in Sources */,
-				B5184F59241F772400C7931F /* DateExtension.swift in Sources */,
+				B5184F59241F772400C7931F /* Date + Extension.swift in Sources */,
 				B5184F28241CDA9C00C7931F /* SpaceXRocketSecondStagePayload.swift in Sources */,
 				B5F9F799241C0F8C00CADA76 /* LaunchesViewController.swift in Sources */,
 				B5184F24241CD80500C7931F /* SpaceXRocketFirstStageCore.swift in Sources */,
@@ -506,7 +506,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J74H2E8F8;
-				INFOPLIST_FILE = SpaceXApp/Info.plist;
+				INFOPLIST_FILE = "SpaceXApp/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -524,7 +524,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J74H2E8F8;
-				INFOPLIST_FILE = SpaceXApp/Info.plist;
+				INFOPLIST_FILE = "SpaceXApp/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

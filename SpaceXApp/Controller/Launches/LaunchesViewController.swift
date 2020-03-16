@@ -59,9 +59,9 @@ class LaunchesViewController: UIViewController {
         }
     }
     
-    func proceedToDetailedInformationController(with data: SpaceXLaunch) {
+    func presentDetailedInformationController(with data: SpaceXLaunch) {
         let storyBoard = UIStoryboard(name: "DetailedLaunchInformation", bundle: nil)
-        let detailedInfoVC = storyBoard.instantiateViewController(withIdentifier: "DetailedLaunchInformationViewController") as! DetailedLaunchInformationViewController
+        guard let detailedInfoVC = storyBoard.instantiateViewController(withIdentifier: "DetailedLaunchInformationViewController") as? DetailedLaunchInformationViewController else { return }
         detailedInfoVC.launchData = data
         navigationController?.pushViewController(detailedInfoVC, animated: true)
     }
@@ -97,6 +97,6 @@ extension LaunchesViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        proceedToDetailedInformationController(with: spaceXLaunches[indexPath.row])
+        presentDetailedInformationController(with: spaceXLaunches[indexPath.row])
     }
 }

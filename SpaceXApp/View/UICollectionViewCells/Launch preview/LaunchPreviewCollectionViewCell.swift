@@ -80,25 +80,36 @@ class LaunchPreviewCollectionViewCell: UICollectionViewCell {
     let resultLabel = DetailedInfoLabel()
     
     private func setupView() {
-        contentView.addSubview(missionNameLabel)
-        contentView.addSubview(separator)
+        backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        layer.cornerRadius = 12.0
+        setupMissionNameLabel()
+        setupSeparator()
+        setupLaunchInfoStackView()
+        setupLaunchDetailsStackView()
+    }
+    
+    func setupLaunchInfoStackView() {
         contentView.addSubview(launchInfoStackView)
-        // Launch info StackView.
         launchInfoStackView.addArrangedSubview(rocketImageView)
+        launchInfoStackView.anchor(top: separator.bottomAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: .init(top: 8, left: 16, bottom: 8, right: 16))
+    }
+    
+    func setupLaunchDetailsStackView() {
         launchInfoStackView.addArrangedSubview(launchDetailsStackView)
-        // Launch details StackView.
         launchDetailsStackView.addArrangedSubview(rocketNameLabel)
         launchDetailsStackView.addArrangedSubview(launchDateLabel)
         launchDetailsStackView.addArrangedSubview(siteNameLabel)
         launchDetailsStackView.addArrangedSubview(resultLabel)
-        backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        layer.cornerRadius = 12.0
-        // Rocket name label.
+    }
+    
+    func setupMissionNameLabel() {
+        contentView.addSubview(missionNameLabel)
         missionNameLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 16))
-        // Separator.
+    }
+    
+    func setupSeparator() {
+        contentView.addSubview(separator)
         separator.anchor(top: missionNameLabel.bottomAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 8, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 1))
-        // Stackview.
-        launchInfoStackView.anchor(top: separator.bottomAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: .init(top: 8, left: 16, bottom: 8, right: 16))
     }
     
     private func setupShadows() {
@@ -135,6 +146,7 @@ class LaunchPreviewCollectionViewCell: UICollectionViewCell {
                     DispatchQueue.main.async {
                         if imageURLString == self.imageUrl {
                             self.rocketImageView.image = image
+                            
                         }
                     }
                 case .failure(let error):
