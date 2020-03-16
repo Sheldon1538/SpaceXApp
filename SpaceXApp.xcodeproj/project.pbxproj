@@ -169,6 +169,9 @@
 				B5184F4F241EBB7A00C7931F /* DateFormats.swift */,
 				B5184F56241F727D00C7931F /* UIViewExtension.swift */,
 				B5184F58241F772400C7931F /* DateExtension.swift */,
+				B5F9F794241C0F8C00CADA76 /* AppDelegate.swift */,
+				B5F9F796241C0F8C00CADA76 /* SceneDelegate.swift */,
+				B5F9F7A2241C0F8F00CADA76 /* Info.plist */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -215,11 +218,8 @@
 				B5F9F7A8241C187D00CADA76 /* Model */,
 				B5F9F7A9241C188900CADA76 /* View */,
 				B5F9F7AA241C189300CADA76 /* Controller */,
-				B5F9F794241C0F8C00CADA76 /* AppDelegate.swift */,
-				B5F9F796241C0F8C00CADA76 /* SceneDelegate.swift */,
 				B5F9F79D241C0F8F00CADA76 /* Assets.xcassets */,
 				B5F9F79F241C0F8F00CADA76 /* LaunchScreen.storyboard */,
-				B5F9F7A2241C0F8F00CADA76 /* Info.plist */,
 			);
 			path = SpaceXApp;
 			sourceTree = "<group>";
@@ -248,18 +248,18 @@
 			isa = PBXGroup;
 			children = (
 				B5184F51241ECF0900C7931F /* Detailed information */,
-				B5F9F7AB241C18A600CADA76 /* LatestNews */,
+				B5F9F7AB241C18A600CADA76 /* Launches */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		B5F9F7AB241C18A600CADA76 /* LatestNews */ = {
+		B5F9F7AB241C18A600CADA76 /* Launches */ = {
 			isa = PBXGroup;
 			children = (
 				B5F9F798241C0F8C00CADA76 /* LaunchesViewController.swift */,
 				B5F9F79A241C0F8C00CADA76 /* LaunchesViewController.storyboard */,
 			);
-			path = LatestNews;
+			path = Launches;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
