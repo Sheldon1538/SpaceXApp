@@ -75,7 +75,6 @@ class LaunchPreviewCollectionViewCell: UICollectionViewCell {
     let siteNameLabel: DetailedInfoLabel = {
         let label = DetailedInfoLabel()
         label.numberOfLines = 2
-        label.minimumScaleFactor = 0.7
         return label
     }()
     let resultLabel = DetailedInfoLabel()
@@ -95,19 +94,11 @@ class LaunchPreviewCollectionViewCell: UICollectionViewCell {
         backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         layer.cornerRadius = 12.0
         // Rocket name label.
-        missionNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16).isActive = true
-        missionNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        missionNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
+        missionNameLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 16))
         // Separator.
-        separator.topAnchor.constraint(equalTo: missionNameLabel.bottomAnchor, constant: 8).isActive = true
-        separator.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        separator.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        separator.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
+        separator.anchor(top: missionNameLabel.bottomAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 8, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 1))
         // Stackview.
-        launchInfoStackView.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 8).isActive = true
-        launchInfoStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        launchInfoStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
-        launchInfoStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8).isActive = true
+        launchInfoStackView.anchor(top: separator.bottomAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: .init(top: 8, left: 16, bottom: 8, right: 16))
     }
     
     private func setupShadows() {
@@ -119,35 +110,22 @@ class LaunchPreviewCollectionViewCell: UICollectionViewCell {
         layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
     }
     
-    public func configureWith(data: SpaceXLaunch) {
+    func configureWith(data: SpaceXLaunch) {
         missionNameLabel.text = data.missionName ?? "No data"
         rocketNameLabel.text  = data.rocket?.rocketName ?? "No rocket name information"
         siteNameLabel.text    = data.launchSite?.siteNameLong ?? "No site name information"
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale.current
-        dateFormatter.dateFormat = DateFormats.apiDateFormat
-    
-        if let date = dateFormatter.date(from: data.launchDateUtc ?? "") {
-            let compactDateFormatter = DateFormatter()
-            compactDateFormatter.locale = Locale.current
-            compactDateFormatter.dateFormat = DateFormats.displayDateFormat
-            launchDateLabel.text = "\(compactDateFormatter.string(from: date))"
+        if let utcString = data.launchDateUtc {
+            if let displayDate = Date().getDateStringInDisplayFormat(utcString: utcString) {
+                launchDateLabel.text = displayDate
+            }
         }
-        
         if data.upcoming == true {
             resultLabel.text = "Upcoming launch"
         } else {
             if let result = data.launchSuccess {
-                switch result {
-                case true:
-                    resultLabel.text = "Successful launch"
-                case false:
-                    resultLabel.text = "Failed launch"
-                }
+                resultLabel.text = result ? "Successful launch" : "Failed launch"
             }
         }
-        
         if let imageURLString = data.links?.missionPatchSmall {
             imageUrl = imageURLString
             NetworkManager.shared.loadData(urlString: imageURLString) { (result) in

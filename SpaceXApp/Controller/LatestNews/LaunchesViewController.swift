@@ -35,14 +35,14 @@ class LaunchesViewController: UIViewController {
         loadLaunches()
     }
     
-    private func setupCollectionView() {
+    func setupCollectionView() {
         collectionView.delegate             = self
         collectionView.dataSource           = self
         collectionView.alwaysBounceVertical = true
         collectionView.register(LaunchPreviewCollectionViewCell.self, forCellWithReuseIdentifier: LaunchPreviewCollectionViewCell.identifier)
     }
     
-    private func loadLaunches() {
+    func loadLaunches() {
         let url = SpaceXGetLaunchesURL(offset: launchesPaginationOffset).getURL()
         SpaceXAPIManager.shared.fetch(url: url, type: SpaceXLaunch.self) { (result) in
             switch result {
@@ -57,6 +57,13 @@ class LaunchesViewController: UIViewController {
                 print("Error: " + error.localizedDescription)
             }
         }
+    }
+    
+    func proceedToDetailedInformationController(with data: SpaceXLaunch) {
+        let storyBoard = UIStoryboard(name: "DetailedLaunchInformation", bundle: nil)
+        let detailedInfoVC = storyBoard.instantiateViewController(withIdentifier: "DetailedLaunchInformationViewController") as! DetailedLaunchInformationViewController
+        detailedInfoVC.launchData = data
+        navigationController?.pushViewController(detailedInfoVC, animated: true)
     }
 }
 
@@ -87,5 +94,9 @@ extension LaunchesViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 24.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        proceedToDetailedInformationController(with: spaceXLaunches[indexPath.row])
     }
 }
