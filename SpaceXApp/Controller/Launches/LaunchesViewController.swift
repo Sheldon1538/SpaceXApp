@@ -12,6 +12,8 @@ class LaunchesViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var dataProvider = SpaceXDataProvider(apiManager: APIManager())
+    
     var spaceXLaunches: [SpaceXLaunch] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -43,8 +45,7 @@ class LaunchesViewController: UIViewController {
     }
     
     func loadLaunches() {
-        let url = SpaceXGetLaunchesURL(offset: launchesPaginationOffset).getURL()
-        SpaceXAPIManager.shared.fetch(url: url, type: [SpaceXLaunch].self) { (result) in
+        dataProvider.getSpaceXLaunches(paginationOffset: launchesPaginationOffset) { (result) in
             switch result {
             case .success(let launches):
                 if launches.isEmpty {
@@ -76,6 +77,20 @@ extension LaunchesViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LaunchPreviewCollectionViewCell.identifier, for: indexPath) as? LaunchPreviewCollectionViewCell else { print("Error while configuring the cell."); return UICollectionViewCell() }
         cell.configureWith(data: spaceXLaunches[indexPath.row])
+        if let url = spaceXLaunches[indexPath.row].links?.missionPatchSmall {
+            dataProvider.downloadImage(url: url) { (result) in
+                switch result {
+                case .success(let image):
+                    if url == cell.imageUrl {
+                        DispatchQueue.main.async {
+                            cell.rocketImageView.image = image
+                        }
+                    }
+                case .failure(let error):
+                    print("Error: " + error.localizedDescription)
+                }
+            }
+        }
         if indexPath.row == spaceXLaunches.count-1 {
             if loadedAllLaunches == false {
                 loadLaunches()

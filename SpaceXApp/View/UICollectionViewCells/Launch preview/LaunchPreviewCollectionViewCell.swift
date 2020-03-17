@@ -139,20 +139,6 @@ class LaunchPreviewCollectionViewCell: UICollectionViewCell {
         }
         if let imageURLString = data.links?.missionPatchSmall {
             imageUrl = imageURLString
-            NetworkManager.shared.loadData(urlString: imageURLString) { (result) in
-                switch result {
-                case .success(let data):
-                    guard let image = UIImage(data: data) else { return }
-                    DispatchQueue.main.async {
-                        if imageURLString == self.imageUrl {
-                            self.rocketImageView.image = image
-                            
-                        }
-                    }
-                case .failure(let error):
-                    print("Error loading image: " + error.localizedDescription)
-                }
-            }
         }
     }
 }
