@@ -63,7 +63,7 @@ class LaunchesViewController: UIViewController {
     func presentDetailedInformationController(with data: SpaceXLaunch) {
         let storyBoard = UIStoryboard(name: "DetailedLaunchInformation", bundle: nil)
         guard let detailedInfoVC = storyBoard.instantiateViewController(withIdentifier: "DetailedLaunchInformationViewController") as? DetailedLaunchInformationViewController else { return }
-        detailedInfoVC.launchData = data
+        detailedInfoVC.launch = data
         navigationController?.pushViewController(detailedInfoVC, animated: true)
     }
 }

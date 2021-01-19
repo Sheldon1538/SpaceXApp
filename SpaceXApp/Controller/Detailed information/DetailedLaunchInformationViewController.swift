@@ -12,7 +12,7 @@ class DetailedLaunchInformationViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var launchData: SpaceXLaunch!
+    var launch: SpaceXLaunch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class DetailedLaunchInformationViewController: UIViewController {
     }
     
     func configureData() {
-        if let missionName = launchData.missionName {
+        if let missionName = launch.missionName {
             title = missionName
         }
     }
@@ -41,7 +41,7 @@ extension DetailedLaunchInformationViewController: UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LaunchInfoTableViewCell.identifier, for: indexPath) as? LaunchInfoTableViewCell else { return UITableViewCell() }
-        cell.configureWith(data: launchData, row: indexPath.row)
+        cell.configureWith(data: launch, row: indexPath.row)
         return cell
     }
 }
