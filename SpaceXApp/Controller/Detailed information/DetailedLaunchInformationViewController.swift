@@ -10,21 +10,39 @@ import UIKit
 
 class DetailedLaunchInformationViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
-    
+    var tableView: UITableView!
     var launch: SpaceXLaunch!
+    
+    init(launch: SpaceXLaunch) {
+        self.launch = launch
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         configureData()
         setupTableView()
+        addTableView()
+    }
+    
+    func addTableView() {
+        view.addSubview(tableView)
+        tableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
     }
     
     func setupTableView() {
+        tableView = UITableView(frame: .zero)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.allowsSelection = false
         tableView.tableFooterView = UIView()
-        tableView.register(UINib(nibName: LaunchInfoTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: LaunchInfoTableViewCell.identifier)
+        tableView.register(LaunchInfoTableViewCell.self, forCellReuseIdentifier: LaunchInfoTableViewCell.identifier)
     }
     
     func configureData() {

@@ -9,10 +9,9 @@
 import UIKit
 
 class LaunchesViewController: UIViewController {
-
-    @IBOutlet weak var collectionView: UICollectionView!
     
-    var dataProvider = SpaceXDataProvider(apiManager: APIManager())
+    var collectionView: UICollectionView!
+    var dataProvider: SpaceXService!
     
     var spaceXLaunches: [SpaceXLaunch] = [] {
         didSet {
@@ -25,6 +24,15 @@ class LaunchesViewController: UIViewController {
     var launchesPaginationOffset = 0
     var loadedAllLaunches = false
     
+    init(dataProvider: SpaceXDataProvider) {
+        self.dataProvider = dataProvider
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.collectionViewLayout.invalidateLayout()
@@ -33,15 +41,25 @@ class LaunchesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Launches"
-        setupCollectionView()
+        view.backgroundColor = .white
+        setupCollectionViewFlowLayout()
+        addCollectionView()
+        collectionView.register(LaunchPreviewCollectionViewCell.self, forCellWithReuseIdentifier: LaunchPreviewCollectionViewCell.identifier)
         loadLaunches()
     }
     
-    func setupCollectionView() {
-        collectionView.delegate             = self
-        collectionView.dataSource           = self
-        collectionView.alwaysBounceVertical = true
-        collectionView.register(LaunchPreviewCollectionViewCell.self, forCellWithReuseIdentifier: LaunchPreviewCollectionViewCell.identifier)
+    func setupCollectionViewFlowLayout() {
+        let layout = UICollectionViewFlowLayout()
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .clear
+    }
+    
+    func addCollectionView() {
+        view.addSubview(collectionView)
+        collectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
     }
     
     func loadLaunches() {
@@ -61,10 +79,8 @@ class LaunchesViewController: UIViewController {
     }
     
     func presentDetailedInformationController(with data: SpaceXLaunch) {
-        let storyBoard = UIStoryboard(name: "DetailedLaunchInformation", bundle: nil)
-        guard let detailedInfoVC = storyBoard.instantiateViewController(withIdentifier: "DetailedLaunchInformationViewController") as? DetailedLaunchInformationViewController else { return }
-        detailedInfoVC.launch = data
-        navigationController?.pushViewController(detailedInfoVC, animated: true)
+        let detailedLaunchInformationViewController = DetailedLaunchInformationViewController(launch: data)
+        navigationController?.pushViewController(detailedLaunchInformationViewController, animated: true)
     }
 }
 

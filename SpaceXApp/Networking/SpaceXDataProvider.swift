@@ -8,7 +8,12 @@
 
 import UIKit
 
-class SpaceXDataProvider {
+protocol SpaceXService {
+    func getSpaceXLaunches(paginationOffset: Int, completion: @escaping(Result<[SpaceXLaunch], Error>) -> Void)
+    func downloadImage(url: String, completion: @escaping(Result<UIImage, Error>) -> Void)
+}
+
+class SpaceXDataProvider: SpaceXService {
     var apiManager: APIManager
     var imageCache = NSCache<NSString, UIImage>()
     
