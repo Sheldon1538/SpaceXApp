@@ -24,8 +24,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let navController = UINavigationController(rootViewController: LaunchesViewController(dataProvider: spaceXDataProvider))
-        window?.rootViewController = navController
+        
+        let launchesNavigationController = UINavigationController(rootViewController: LaunchesViewController(dataProvider: spaceXDataProvider))
+        launchesNavigationController.navigationBar.prefersLargeTitles = true
+        launchesNavigationController.tabBarItem = UITabBarItem(title: "Launches", image: UIImage(systemName: "lineweight")?.withRenderingMode(.automatic), selectedImage: UIImage(systemName: "lineweight")?.withRenderingMode(.automatic))
+        
+        let rocketsNavigationController = UINavigationController(rootViewController: RocketsViewController())
+        rocketsNavigationController.navigationBar.prefersLargeTitles = true
+        rocketsNavigationController.tabBarItem = UITabBarItem(title: "Rockets", image: UIImage(systemName: "folder")?.withRenderingMode(.automatic), selectedImage: UIImage(systemName: "linewight")?.withRenderingMode(.automatic))
+        
+        let tabBarViewController = UITabBarController()
+        tabBarViewController.addChild(launchesNavigationController)
+        tabBarViewController.addChild(rocketsNavigationController)
+        window?.rootViewController = tabBarViewController
         window?.makeKeyAndVisible()
     }
 
