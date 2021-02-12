@@ -1,5 +1,5 @@
 //
-//  SpaceXRocketFairings.swift
+//  SpaceXLaunchRocketFairings.swift
 //  SpaceXApp
 //
 //  Created by Konstantin on 14/03/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SpaceXRocketFairings: Codable {
+struct SpaceXLaunchRocketFairings: Codable {
     let reused:          Bool?
     let recoveryAttempt: Bool?
     let recovered:       Bool?

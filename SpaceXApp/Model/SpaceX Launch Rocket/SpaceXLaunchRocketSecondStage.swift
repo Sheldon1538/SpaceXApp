@@ -1,5 +1,5 @@
 //
-//  SpaceXRocketSecondStage.swift
+//  SpaceXLaunchRocketSecondStage.swift
 //  SpaceXApp
 //
 //  Created by Konstantin on 14/03/2020.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct SpaceXRocketSecondStage: Codable {
+struct SpaceXLaunchRocketSecondStage: Codable {
     let block:    Int?
-    let payloads: [SpaceXRocketSecondStagePayload?]
+    let payloads: [SpaceXLaunchRocketSecondStagePayload?]
     
     enum CodingKeys: String, CodingKey {
         case block    = "block"

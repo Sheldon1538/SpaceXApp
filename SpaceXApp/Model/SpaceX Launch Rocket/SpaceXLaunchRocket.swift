@@ -1,5 +1,5 @@
 //
-//  SpaceXRocket.swift
+//  SpaceXLaunchRocket.swift
 //  SpaceXApp
 //
 //  Created by Konstantin on 14/03/2020.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct SpaceXRocket: Codable {
+struct SpaceXLaunchRocket: Codable {
     let rocketID:    String?
     let rocketName:  String?
     let rocketType:  String?
-    let firstStage:  SpaceXRocketFirstStage?
-    let secondStage: SpaceXRocketSecondStage?
-    let fairings:    SpaceXRocketFairings?
+    let firstStage:  SpaceXLaunchRocketFirstStage?
+    let secondStage: SpaceXLaunchRocketSecondStage?
+    let fairings:    SpaceXLaunchRocketFairings?
     
     enum CodingKeys: String, CodingKey {
         case rocketID    = "rocket_id"

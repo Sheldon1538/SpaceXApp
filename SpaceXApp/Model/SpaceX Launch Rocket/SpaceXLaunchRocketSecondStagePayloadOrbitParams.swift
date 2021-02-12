@@ -1,5 +1,5 @@
 //
-//  SpaceXRocketSecondStagePayloadOrbitParams.swift
+//  SpaceXLaunchRocketSecondStagePayloadOrbitParams.swift
 //  SpaceXApp
 //
 //  Created by Konstantin on 14/03/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SpaceXRocketSecondStagePayloadOrbitParams: Codable {
+struct SpaceXLaunchRocketSecondStagePayloadOrbitParams: Codable {
     let referenceSystem: String?
     let regime:          String?
     let longitude:       Double?

@@ -1,5 +1,5 @@
 //
-//  SpaceXRocketFirstStageCore.swift
+//  SpaceXLaunchRocketFirstStageCore.swift
 //  SpaceXApp
 //
 //  Created by Konstantin on 14/03/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SpaceXRocketFirstStageCore: Codable {
+struct SpaceXLaunchRocketFirstStageCore: Codable {
     let coreSerial:     String?
     let flight:         Int?
     let block:          Int?

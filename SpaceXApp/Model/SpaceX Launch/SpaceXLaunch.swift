@@ -20,7 +20,7 @@ struct SpaceXLaunch: Codable {
     let tentativeMaxPrecision: String?
     let tbd:                   Bool?
     let launchWindow:          Int?
-    let rocket:                SpaceXRocket?
+    let rocket:                SpaceXLaunchRocket?
     let ships:                 [String?]
     let telemetry:             SpaceXLaunchTelemetry?
     let launchSite:            SpaceXLaunchSite?

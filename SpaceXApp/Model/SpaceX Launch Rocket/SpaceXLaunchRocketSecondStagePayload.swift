@@ -1,5 +1,5 @@
 //
-//  SpaceXRocketSecondStagePayload.swift
+//  SpaceXLaunchRocketSecondStagePayload.swift
 //  SpaceXApp
 //
 //  Created by Konstantin on 14/03/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SpaceXRocketSecondStagePayload: Codable {
+struct SpaceXLaunchRocketSecondStagePayload: Codable {
     let payloadID:       String?
     let noradID:         [Int?]
     let capSerial:       String?
@@ -20,7 +20,7 @@ struct SpaceXRocketSecondStagePayload: Codable {
     let payloadMassKG:   Double?
     let payloadMassLBS:  Double?
     let orbit:           String?
-    let orbitParams:     SpaceXRocketSecondStagePayloadOrbitParams?
+    let orbitParams:     SpaceXLaunchRocketSecondStagePayloadOrbitParams?
     let massReturnedKG:  Double?
     let massReturnedLBS: Double?
     let flightTimeSEC:   Double?

@@ -1,5 +1,5 @@
 //
-//  SpaceXRocketFirstStage.swift
+//  SpaceXLaunchRocketFirstStage.swift
 //  SpaceXApp
 //
 //  Created by Konstantin on 14/03/2020.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct SpaceXRocketFirstStage: Codable {
-    let cores: [SpaceXRocketFirstStageCore?]
+struct SpaceXLaunchRocketFirstStage: Codable {
+    let cores: [SpaceXLaunchRocketFirstStageCore?]
     
     enum CodingKeys: String, CodingKey {
         case cores = "cores"

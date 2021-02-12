@@ -14,8 +14,6 @@ class RocketPreviewCollectionViewCell: UICollectionViewCell {
         setupRocketImageView()
         setupRocketDetailsBackgroundView()
         setupRocketDetailsStackView()
-        
-        addShadow(to: rocketImageView)
         addShadow(to: rocketDetailsBackgroundView)
         
         contentView.bringSubviewToFront(rocketImageView)
@@ -66,8 +64,9 @@ class RocketPreviewCollectionViewCell: UICollectionViewCell {
     let rocketImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .lightGray
+        imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 16.0
         return imageView
     }()
@@ -76,7 +75,7 @@ class RocketPreviewCollectionViewCell: UICollectionViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
-        view.layer.cornerRadius = 12.0
+        view.layer.cornerRadius = 8.0
         return view
     }()
     
@@ -115,8 +114,8 @@ class RocketPreviewCollectionViewCell: UICollectionViewCell {
     
     private func addShadow(to view: UIView) {
         view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.07
+        view.layer.shadowOpacity = 0.15
         view.layer.shadowOffset = .zero
-        view.layer.shadowRadius = 8
+        view.layer.shadowRadius = 10
     }
 }
