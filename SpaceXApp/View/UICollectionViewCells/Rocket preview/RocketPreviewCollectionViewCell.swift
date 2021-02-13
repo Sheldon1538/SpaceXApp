@@ -38,7 +38,7 @@ class RocketPreviewCollectionViewCell: UICollectionViewCell {
     
     let rocketDescriptionLabel: DetailedInfoLabel = {
        let label = DetailedInfoLabel()
-        label.numberOfLines = 3
+        label.numberOfLines = 4
         label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
@@ -65,7 +65,7 @@ class RocketPreviewCollectionViewCell: UICollectionViewCell {
        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .lightGray
+        imageView.backgroundColor = .white
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 16.0
         return imageView
@@ -100,16 +100,10 @@ class RocketPreviewCollectionViewCell: UICollectionViewCell {
     private func setupRocketDetailsStackView() {
         contentView.addSubview(rocketDetailsStackView)
         rocketDetailsStackView.anchor(top: rocketDetailsBackgroundView.topAnchor, leading: rocketImageView.trailingAnchor, bottom: rocketDetailsBackgroundView.bottomAnchor, trailing: rocketDetailsBackgroundView.trailingAnchor, padding: .init(top: 8.0, left: 16.0, bottom: 16.0, right: 16.0))
-        
         rocketDetailsStackView.addArrangedSubview(rocketNameLabel)
         rocketDetailsStackView.addArrangedSubview(rocketEnginesLabel)
         rocketDetailsStackView.addArrangedSubview(firstLaunchLabel)
         rocketDetailsStackView.addArrangedSubview(rocketDescriptionLabel)
-        
-        rocketNameLabel.text = "Falcon 1"
-        rocketEnginesLabel.text = "1 engine"
-        firstLaunchLabel.text = "24 March, 2006"
-        rocketDescriptionLabel.text = "The Falcon 1 was an expendable launch system privately developed and manufactured by SpaceX during 2006-2009. On 28 September 2008, Falcon 1 became the first privately-developed liquid-fuel launch vehicle to go into orbit around the Earth."
     }
     
     private func addShadow(to view: UIView) {

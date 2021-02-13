@@ -9,10 +9,10 @@
 import Foundation
 
 extension Date {
-    func getDateStringInDisplayFormat(utcString: String) -> String? {
+    func getDateStringInDisplayFormat(utcString: String, format: String) -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
-        dateFormatter.dateFormat = DateFormats.apiDateFormat
+        dateFormatter.dateFormat = format
         if let date = dateFormatter.date(from: utcString) {
             let compactDateFormatter = DateFormatter()
             compactDateFormatter.locale = Locale.current

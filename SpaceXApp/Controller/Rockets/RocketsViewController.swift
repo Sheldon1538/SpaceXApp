@@ -11,8 +11,18 @@ import UIKit
 class RocketsViewController: UIViewController {
 
     var collectionView: UICollectionView!
+    var dataProvider: SpaceXDataProvider!
     
-    init() {
+    var rockets: [SpaceXRocket] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
+    init(dataProvider: SpaceXDataProvider) {
+        self.dataProvider = dataProvider
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,6 +37,18 @@ class RocketsViewController: UIViewController {
         setupCollectionViewFlowLayout()
         addCollectionView()
         collectionView.register(RocketPreviewCollectionViewCell.self, forCellWithReuseIdentifier: RocketPreviewCollectionViewCell.identifier)
+        loadRockets()
+    }
+    
+    func loadRockets() {
+        dataProvider.getSpaceXRockets { (result) in
+            switch result {
+            case .success(let rockets):
+                self.rockets = rockets
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func setupCollectionViewFlowLayout() {
@@ -46,12 +68,33 @@ class RocketsViewController: UIViewController {
 
 extension RocketsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return rockets.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketPreviewCollectionViewCell.identifier, for: indexPath) as? RocketPreviewCollectionViewCell else { return UICollectionViewCell() }
-        
+        cell.rocketNameLabel.text = rockets[indexPath.row].name ?? "no data"
+        if rockets[indexPath.row].engines?.number == 1 {
+            cell.rocketEnginesLabel.text = "1 engine"
+        } else {
+            cell.rocketEnginesLabel.text = "\(rockets[indexPath.row].engines?.number ?? 0) engines"
+        }
+        if let firstLaunchDate = rockets[indexPath.row].firstFlight {
+            cell.firstLaunchLabel.text = Date().getDateStringInDisplayFormat(utcString: firstLaunchDate, format: DateFormats.spaceXRocketFirstLaunch)
+        }
+        cell.rocketDescriptionLabel.text = rockets[indexPath.row].description ?? "no data"
+        if let imageURL = rockets[indexPath.row].flickrImages.first.flatMap({$0}) {
+            dataProvider.downloadImage(url: imageURL) { (result) in
+                switch result {
+                case .success(let image):
+                    DispatchQueue.main.async {
+                        cell.rocketImageView.image = image
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
         return cell
     }
     

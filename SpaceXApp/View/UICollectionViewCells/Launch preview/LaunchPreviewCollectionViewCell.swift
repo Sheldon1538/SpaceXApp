@@ -126,7 +126,7 @@ class LaunchPreviewCollectionViewCell: UICollectionViewCell {
         rocketNameLabel.text  = data.rocket?.rocketName ?? "No rocket name information"
         siteNameLabel.text    = data.launchSite?.siteNameLong ?? "No site name information"
         if let utcString = data.launchDateUtc {
-            if let displayDate = Date().getDateStringInDisplayFormat(utcString: utcString) {
+            if let displayDate = Date().getDateStringInDisplayFormat(utcString: utcString, format: DateFormats.spaceXLaunch) {
                 launchDateLabel.text = displayDate
             }
         }

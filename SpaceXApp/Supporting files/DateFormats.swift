@@ -9,6 +9,7 @@
 import Foundation
 
 enum DateFormats {
-    static let apiDateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+    static let spaceXLaunch = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+    static let spaceXRocketFirstLaunch = "yyyy-mm-dd"
     static let displayDateFormat = "dd MMMM yyyy"
 }

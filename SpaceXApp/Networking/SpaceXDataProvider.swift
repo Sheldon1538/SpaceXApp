@@ -33,6 +33,18 @@ class SpaceXDataProvider: SpaceXService {
         }
     }
     
+    func getSpaceXRockets(completion: @escaping(Result<[SpaceXRocket], Error>) -> Void) {
+        let url = SpaceXAPIData.baseURL + SpaceXAPIData.Version.v4 + SpaceXAPIData.Endpoint.rockets
+        apiManager.fetch(url: url, type: [SpaceXRocket].self) { (result) in
+            switch result {
+            case .success(let rockets):
+                completion(.success(rockets))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
     func downloadImage(url: String, completion: @escaping(Result<UIImage, Error>) -> Void) {
         if let cachedImage = imageCache.object(forKey: url as NSString) {
             completion(.success(cachedImage))

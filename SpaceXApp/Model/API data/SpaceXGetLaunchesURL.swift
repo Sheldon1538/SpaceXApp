@@ -16,7 +16,7 @@ struct SpaceXGetLaunchesURL {
     }
     
     func getURL() -> String {
-        let urlString = SpaceXAPIData.baseURL + SpaceXAPIData.Endpoint.launches + "?limit=5&offset=\(offset)"
+        let urlString = SpaceXAPIData.baseURL + SpaceXAPIData.Version.v3 + SpaceXAPIData.Endpoint.launches + "?limit=5&offset=\(offset)"
         return urlString
     }
 }

@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         launchesNavigationController.navigationBar.prefersLargeTitles = true
         launchesNavigationController.tabBarItem = UITabBarItem(title: "Launches", image: UIImage(systemName: "lineweight")?.withRenderingMode(.automatic), selectedImage: UIImage(systemName: "lineweight")?.withRenderingMode(.automatic))
         
-        let rocketsNavigationController = UINavigationController(rootViewController: RocketsViewController())
+        let rocketsNavigationController = UINavigationController(rootViewController: RocketsViewController(dataProvider: spaceXDataProvider))
         rocketsNavigationController.navigationBar.prefersLargeTitles = true
         rocketsNavigationController.tabBarItem = UITabBarItem(title: "Rockets", image: UIImage(systemName: "folder")?.withRenderingMode(.automatic), selectedImage: UIImage(systemName: "linewight")?.withRenderingMode(.automatic))
         
