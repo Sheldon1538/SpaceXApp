@@ -38,6 +38,7 @@ class RocketsViewController: UIViewController {
         addCollectionView()
         collectionView.register(RocketPreviewCollectionViewCell.self, forCellWithReuseIdentifier: RocketPreviewCollectionViewCell.identifier)
         loadRockets()
+        removeNavigationBarBorderLine()
     }
     
     func loadRockets() {
@@ -59,6 +60,11 @@ class RocketsViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
+    }
+    
+    func removeNavigationBarBorderLine() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     func addCollectionView() {

@@ -47,7 +47,7 @@ class RocketPreviewCollectionViewCell: UICollectionViewCell {
     let rocketEnginesLabel: PaddingLabel = {
         let label = PaddingLabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        label.backgroundColor = #colorLiteral(red: 0.9451864844, green: 0.3631296346, blue: 0, alpha: 0.4)
+        label.backgroundColor = #colorLiteral(red: 0.9451864844, green: 0.3631296346, blue: 0, alpha: 0.5)
         label.textColor = .white
         label.textAlignment = .left
         label.contentMode = .left

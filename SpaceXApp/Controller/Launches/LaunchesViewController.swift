@@ -46,6 +46,7 @@ class LaunchesViewController: UIViewController {
         addCollectionView()
         collectionView.register(LaunchPreviewCollectionViewCell.self, forCellWithReuseIdentifier: LaunchPreviewCollectionViewCell.identifier)
         loadLaunches()
+        removeNavigationBarBorderLine()
     }
     
     func setupCollectionViewFlowLayout() {
@@ -81,6 +82,11 @@ class LaunchesViewController: UIViewController {
     func presentDetailedInformationController(with data: SpaceXLaunch) {
         let detailedLaunchInformationViewController = DetailedLaunchInformationViewController(launch: data)
         navigationController?.pushViewController(detailedLaunchInformationViewController, animated: true)
+    }
+    
+    func removeNavigationBarBorderLine() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
 }
 
