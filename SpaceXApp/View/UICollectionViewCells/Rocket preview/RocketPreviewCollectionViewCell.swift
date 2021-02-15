@@ -39,16 +39,20 @@ class RocketPreviewCollectionViewCell: UICollectionViewCell {
     let rocketDescriptionLabel: DetailedInfoLabel = {
        let label = DetailedInfoLabel()
         label.numberOfLines = 4
+        label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
     
-    let rocketEnginesLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+    let rocketEnginesLabel: PaddingLabel = {
+        let label = PaddingLabel()
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.backgroundColor = #colorLiteral(red: 0.9451864844, green: 0.3631296346, blue: 0, alpha: 0.4)
+        label.textColor = .white
         label.textAlignment = .left
-        label.textColor = #colorLiteral(red: 0.9451864844, green: 0.7608078703, blue: 0.6433241656, alpha: 0.85)
-        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.contentMode = .left
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 8.0
         return label
     }()
     
@@ -65,7 +69,7 @@ class RocketPreviewCollectionViewCell: UICollectionViewCell {
        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .white
+        imageView.backgroundColor = .lightGray
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 16.0
         return imageView
@@ -84,6 +88,7 @@ class RocketPreviewCollectionViewCell: UICollectionViewCell {
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillProportionally
+        stackView.alignment = .leading
         return stackView
     }()
     
