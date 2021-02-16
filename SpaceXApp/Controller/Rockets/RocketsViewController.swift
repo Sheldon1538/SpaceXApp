@@ -8,8 +8,16 @@
 
 import UIKit
 
-class RocketsViewController: UIViewController {
+struct SpaceXRocketsUX {
+    static let rowSpacing: CGFloat = 24.0
+    static let cellWidthSpacing: CGFloat = 32.0
+    static let collectionViewTopSpacing: CGFloat = 16.0
+    static let collectionViewLeftSpacing: CGFloat = 0.0
+    static let collectionViewBottomSpacing: CGFloat = 8.0
+    static let collectionViewRightSpacing: CGFloat = 0.0
+}
 
+class RocketsViewController: UIViewController {
     var collectionView: UICollectionView!
     var dataProvider: SpaceXDataProvider!
     
@@ -106,15 +114,15 @@ extension RocketsViewController: UICollectionViewDelegate, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: UIScreen.main.bounds.width - 32.0, height: 200.0)
+        return .init(width: UIScreen.main.bounds.width - SpaceXRocketsUX.cellWidthSpacing, height: 200.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 24.0
+        return SpaceXRocketsUX.rowSpacing
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 16, left: 0, bottom: 8, right: 0)
+        return UIEdgeInsets(top: SpaceXRocketsUX.collectionViewTopSpacing, left: SpaceXRocketsUX.collectionViewLeftSpacing, bottom: SpaceXRocketsUX.collectionViewBottomSpacing, right: SpaceXRocketsUX.collectionViewRightSpacing)
     }
     
 }
