@@ -79,6 +79,11 @@ class RocketsViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor)
     }
+    
+    func presentRocketDetailsViewController(rocketDetails: SpaceXRocket) {
+        let viewController = RocketDetailsViewController(rocketDetails: rocketDetails)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 extension RocketsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -125,4 +130,7 @@ extension RocketsViewController: UICollectionViewDelegate, UICollectionViewDeleg
         return UIEdgeInsets(top: SpaceXRocketsUX.collectionViewTopSpacing, left: SpaceXRocketsUX.collectionViewLeftSpacing, bottom: SpaceXRocketsUX.collectionViewBottomSpacing, right: SpaceXRocketsUX.collectionViewRightSpacing)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presentRocketDetailsViewController(rocketDetails: rockets[indexPath.row])
+    }
 }

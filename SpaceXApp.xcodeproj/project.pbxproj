@@ -44,6 +44,7 @@
 		B56BF485242142EE00A0EF03 /* SpaceXDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56BF484242142EE00A0EF03 /* SpaceXDataProvider.swift */; };
 		B5A8823925CD6408008D1047 /* RocketPreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A8823825CD6408008D1047 /* RocketPreviewCollectionViewCell.swift */; };
 		B5AE8C6325D7FD1500B3A84E /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8C6225D7FD1500B3A84E /* PaddingLabel.swift */; };
+		B5E10F7D25EFACE200854561 /* RocketDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E10F7C25EFACE100854561 /* RocketDetailsViewController.swift */; };
 		B5E6ED3F25CAA5BD00F5D4E0 /* RocketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E6ED3E25CAA5BD00F5D4E0 /* RocketsViewController.swift */; };
 		B5F9F795241C0F8C00CADA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9F794241C0F8C00CADA76 /* AppDelegate.swift */; };
 		B5F9F797241C0F8C00CADA76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9F796241C0F8C00CADA76 /* SceneDelegate.swift */; };
@@ -90,6 +91,7 @@
 		B56BF484242142EE00A0EF03 /* SpaceXDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXDataProvider.swift; sourceTree = "<group>"; };
 		B5A8823825CD6408008D1047 /* RocketPreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketPreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5AE8C6225D7FD1500B3A84E /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		B5E10F7C25EFACE100854561 /* RocketDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDetailsViewController.swift; sourceTree = "<group>"; };
 		B5E6ED3E25CAA5BD00F5D4E0 /* RocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsViewController.swift; sourceTree = "<group>"; };
 		B5F9F791241C0F8C00CADA76 /* SpaceXApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F9F794241C0F8C00CADA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -245,6 +247,14 @@
 			path = "Launch info";
 			sourceTree = "<group>";
 		};
+		B5E10F7B25EFACAF00854561 /* Rocket details */ = {
+			isa = PBXGroup;
+			children = (
+				B5E10F7C25EFACE100854561 /* RocketDetailsViewController.swift */,
+			);
+			path = "Rocket details";
+			sourceTree = "<group>";
+		};
 		B5E6ED3D25CAA5A200F5D4E0 /* Rockets */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +317,7 @@
 		B5F9F7AA241C189300CADA76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B5E10F7B25EFACAF00854561 /* Rocket details */,
 				B5E6ED3D25CAA5A200F5D4E0 /* Rockets */,
 				B5184F51241ECF0900C7931F /* Detailed information */,
 				B5F9F7AB241C18A600CADA76 /* Launches */,
@@ -425,6 +436,7 @@
 				B5184F53241ECF4700C7931F /* DetailedLaunchInformationViewController.swift in Sources */,
 				B5184F2E241CE09900C7931F /* SpaceXLaunchTelemetry.swift in Sources */,
 				B5AE8C6325D7FD1500B3A84E /* PaddingLabel.swift in Sources */,
+				B5E10F7D25EFACE200854561 /* RocketDetailsViewController.swift in Sources */,
 				B5184F50241EBB7A00C7931F /* DateFormats.swift in Sources */,
 				B5F9F795241C0F8C00CADA76 /* AppDelegate.swift in Sources */,
 				B569B53C25D7DBE20021B11D /* SpaceXRocketSecondStagePaylodsCompositeFairings.swift in Sources */,
