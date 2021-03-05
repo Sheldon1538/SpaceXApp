@@ -10,6 +10,7 @@ import UIKit
 
 class RocketDetailsViewController: UIViewController {
     let rocketDetails: SpaceXRocket!
+    var collectionView: UICollectionView!
     
     init(rocketDetails: SpaceXRocket) {
         self.rocketDetails = rocketDetails
@@ -26,4 +27,25 @@ class RocketDetailsViewController: UIViewController {
         title = rocketDetails.name ?? "Rocket name"
         view.backgroundColor = .white
     }
+    
+    func setupCollectionViewFlowLayout() {
+        let layout = UICollectionViewFlowLayout()
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .clear
+    }
+}
+
+extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
+    }
+    
+    
 }
