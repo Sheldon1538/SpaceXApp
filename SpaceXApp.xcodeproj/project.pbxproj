@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5137D3025F790EB00E265E0 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5137D2F25F790EB00E265E0 /* ImageCollectionViewCell.swift */; };
 		B5184F1E241CD21800C7931F /* SpaceXLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F1D241CD21800C7931F /* SpaceXLaunch.swift */; };
 		B5184F20241CD6D600C7931F /* SpaceXLaunchRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F1F241CD6D600C7931F /* SpaceXLaunchRocket.swift */; };
 		B5184F22241CD7A200C7931F /* SpaceXLaunchRocketFirstStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F21241CD7A200C7931F /* SpaceXLaunchRocketFirstStage.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5137D2F25F790EB00E265E0 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5184F1D241CD21800C7931F /* SpaceXLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunch.swift; sourceTree = "<group>"; };
 		B5184F1F241CD6D600C7931F /* SpaceXLaunchRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchRocket.swift; sourceTree = "<group>"; };
 		B5184F21241CD7A200C7931F /* SpaceXLaunchRocketFirstStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchRocketFirstStage.swift; sourceTree = "<group>"; };
@@ -113,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5137D2E25F790DB00E265E0 /* Image cell */ = {
+			isa = PBXGroup;
+			children = (
+				B5137D2F25F790EB00E265E0 /* ImageCollectionViewCell.swift */,
+			);
+			path = "Image cell";
+			sourceTree = "<group>";
+		};
 		B5184F35241CFAA300C7931F /* SpaceX Launch */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +170,7 @@
 		B5184F41241D7A3600C7931F /* UICollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				B5137D2E25F790DB00E265E0 /* Image cell */,
 				B5A8823725CD63EB008D1047 /* Rocket preview */,
 				B5184F42241D7A4200C7931F /* Launch preview */,
 			);
@@ -437,6 +448,7 @@
 				B5184F2E241CE09900C7931F /* SpaceXLaunchTelemetry.swift in Sources */,
 				B5AE8C6325D7FD1500B3A84E /* PaddingLabel.swift in Sources */,
 				B5E10F7D25EFACE200854561 /* RocketDetailsViewController.swift in Sources */,
+				B5137D3025F790EB00E265E0 /* ImageCollectionViewCell.swift in Sources */,
 				B5184F50241EBB7A00C7931F /* DateFormats.swift in Sources */,
 				B5F9F795241C0F8C00CADA76 /* AppDelegate.swift in Sources */,
 				B569B53C25D7DBE20021B11D /* SpaceXRocketSecondStagePaylodsCompositeFairings.swift in Sources */,

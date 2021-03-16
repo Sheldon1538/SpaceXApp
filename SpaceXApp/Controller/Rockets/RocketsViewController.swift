@@ -81,7 +81,7 @@ class RocketsViewController: UIViewController {
     }
     
     func presentRocketDetailsViewController(rocketDetails: SpaceXRocket) {
-        let viewController = RocketDetailsViewController(rocketDetails: rocketDetails)
+        let viewController = RocketDetailsViewController(rocketDetails: rocketDetails, dataProvider: dataProvider)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
