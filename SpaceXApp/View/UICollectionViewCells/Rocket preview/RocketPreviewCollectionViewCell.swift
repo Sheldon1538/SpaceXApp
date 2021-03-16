@@ -9,14 +9,20 @@
 import UIKit
 
 class RocketPreviewCollectionViewCell: UICollectionViewCell {
+    var imageURL: String!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupRocketImageView()
         setupRocketDetailsBackgroundView()
         setupRocketDetailsStackView()
         addShadow(to: rocketDetailsBackgroundView)
-        
         contentView.bringSubviewToFront(rocketImageView)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        rocketImageView.image = nil
     }
     
     required init?(coder: NSCoder) {

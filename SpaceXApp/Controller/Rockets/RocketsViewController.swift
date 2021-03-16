@@ -104,11 +104,14 @@ extension RocketsViewController: UICollectionViewDelegate, UICollectionViewDeleg
         }
         cell.rocketDescriptionLabel.text = rockets[indexPath.row].description ?? "no data"
         if let imageURL = rockets[indexPath.row].flickrImages.first.flatMap({$0}) {
+            cell.imageURL = imageURL
             dataProvider.downloadImage(url: imageURL) { (result) in
                 switch result {
                 case .success(let image):
-                    DispatchQueue.main.async {
-                        cell.rocketImageView.image = image
+                    if imageURL == cell.imageURL {
+                        DispatchQueue.main.async {
+                            cell.rocketImageView.image = image
+                        }
                     }
                 case .failure(let error):
                     print(error.localizedDescription)

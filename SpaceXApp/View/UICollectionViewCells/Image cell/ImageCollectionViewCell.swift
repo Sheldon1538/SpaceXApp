@@ -12,7 +12,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupImageView()
-        layer.cornerRadius = 12.0
+        layer.cornerRadius = 26.0
         clipsToBounds = true
     }
     

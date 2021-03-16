@@ -12,6 +12,7 @@ class RocketDetailsViewController: UIViewController {
     let rocketDetails: SpaceXRocket!
     var dataProvider: SpaceXDataProvider!
     var collectionView: UICollectionView!
+    var imagePageControl: UIPageControl!
     
     init(rocketDetails: SpaceXRocket, dataProvider: SpaceXDataProvider) {
         self.rocketDetails = rocketDetails
@@ -50,15 +51,18 @@ class RocketDetailsViewController: UIViewController {
             switch sectionNumber {
             case 0:
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-                item.contentInsets = .init(top: 16, leading: 16, bottom: 16, trailing: 16)
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(250)), subitems: [item])
+                item.contentInsets = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
+                let groupWidth = env.container.contentSize.width * 0.85
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(groupWidth), heightDimension: .absolute(250)), subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
-                section.orthogonalScrollingBehavior = .paging
+                let sectionSideInset = (env.container.contentSize.width - groupWidth)/2
+                section.contentInsets = .init(top: 0, leading: sectionSideInset, bottom: 0, trailing: sectionSideInset)
+                section.orthogonalScrollingBehavior = .groupPaging
                 return section
             case 1:
-                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.25), heightDimension: .absolute(150)))
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 item.contentInsets = .init(top: 16, leading: 16, bottom: 16, trailing: 16)
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(500)), subitems: [item])
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(60)), subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
                 return section
             default:
@@ -109,7 +113,6 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath)
             cell.backgroundColor = .orange
-            cell.clipsToBounds = true
             return cell
         default:
             return .init()
