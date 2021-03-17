@@ -30,7 +30,7 @@ class RocketDetailsViewController: UIViewController {
         view.backgroundColor = .white
         setupCollectionViewFlowLayout()
         addCollectionView()
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellID")
+        collectionView.register(RocketSizeCollectionViewCell.self, forCellWithReuseIdentifier: "RocketSizeCollectionViewCell")
         collectionView.register(TextCollectionViewCell.self, forCellWithReuseIdentifier: "TextCollectionViewCell")
         collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
     }
@@ -67,6 +67,13 @@ class RocketDetailsViewController: UIViewController {
                 section.contentInsets.top = 16
                 section.orthogonalScrollingBehavior = .none
                 return section
+            case 2:
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                item.contentInsets = .init(top: 16, leading: 16, bottom: 16, trailing: 16)
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200)), subitems: [item])
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets.top = 16
+                return section
             default:
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 item.contentInsets = .init(top: 16, leading: 16, bottom: 16, trailing: 16)
@@ -86,13 +93,15 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
             return rocketDetails.flickrImages.count
         case 1:
             return 1
+        case 2:
+            return 1
         default:
             return 0
         }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -114,8 +123,13 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
             return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TextCollectionViewCell", for: indexPath) as? TextCollectionViewCell else { return UICollectionViewCell() }
-          //  cell.backgroundColor = .orange
             cell.textLabel.text = rocketDetails.description ?? "N/A"
+            return cell
+        case 2:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RocketSizeCollectionViewCell", for: indexPath) as? RocketSizeCollectionViewCell else { return UICollectionViewCell() }
+            cell.heightValueLabel.text = "\(rocketDetails.height?.meters ?? 0.0) m"
+            cell.massValueLabel.text = "\(rocketDetails.mass?.kg ?? 0.0) kg"
+            cell.diameterValueLabel.text = "\(rocketDetails.diameter?.meters ?? 0.0) m"
             return cell
         default:
             return .init()
