@@ -33,6 +33,7 @@ class RocketDetailsViewController: UIViewController {
         collectionView.register(RocketSizeCollectionViewCell.self, forCellWithReuseIdentifier: "RocketSizeCollectionViewCell")
         collectionView.register(TextCollectionViewCell.self, forCellWithReuseIdentifier: "TextCollectionViewCell")
         collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
+        collectionView.register(CountryCollectionViewCell.self, forCellWithReuseIdentifier: "CountryCollectionViewCell")
     }
     
     func setupCollectionViewFlowLayout() {
@@ -74,6 +75,12 @@ class RocketDetailsViewController: UIViewController {
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets.top = 16
                 return section
+            case 3:
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(60)), subitems: [item])
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets.leading = 16
+                return section
             default:
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 item.contentInsets = .init(top: 16, leading: 16, bottom: 16, trailing: 16)
@@ -95,13 +102,15 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
             return 1
         case 2:
             return 1
+        case 3:
+            return 1
         default:
             return 0
         }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -130,6 +139,15 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
             cell.heightValueLabel.text = "\(rocketDetails.height?.meters ?? 0.0) m"
             cell.massValueLabel.text = "\(rocketDetails.mass?.kg ?? 0.0) kg"
             cell.diameterValueLabel.text = "\(rocketDetails.diameter?.meters ?? 0.0) m"
+            return cell
+        case 3:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CountryCollectionViewCell", for: indexPath) as? CountryCollectionViewCell else { return UICollectionViewCell() }
+            cell.countryNameLabel.text = rocketDetails.country ?? "N/A"
+            if rocketDetails.country == "United States" {
+                cell.countryFlagLabel.text = "🇺🇸"
+            } else if rocketDetails.country == "Republic of the Marshall Islands" {
+                cell.countryFlagLabel.text = "🇲🇭"
+            }
             return cell
         default:
             return .init()

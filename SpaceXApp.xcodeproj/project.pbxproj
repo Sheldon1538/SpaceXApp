@@ -45,6 +45,7 @@
 		B56BF485242142EE00A0EF03 /* SpaceXDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56BF484242142EE00A0EF03 /* SpaceXDataProvider.swift */; };
 		B58D7D51260127B000F3E861 /* TextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58D7D50260127B000F3E861 /* TextCollectionViewCell.swift */; };
 		B58D7D56260200F900F3E861 /* RocketSizeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58D7D55260200F900F3E861 /* RocketSizeCollectionViewCell.swift */; };
+		B58D7D5B26023F2C00F3E861 /* CountryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58D7D5A26023F2C00F3E861 /* CountryCollectionViewCell.swift */; };
 		B5A8823925CD6408008D1047 /* RocketPreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A8823825CD6408008D1047 /* RocketPreviewCollectionViewCell.swift */; };
 		B5AE8C6325D7FD1500B3A84E /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8C6225D7FD1500B3A84E /* PaddingLabel.swift */; };
 		B5E10F7D25EFACE200854561 /* RocketDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E10F7C25EFACE100854561 /* RocketDetailsViewController.swift */; };
@@ -95,6 +96,7 @@
 		B56BF484242142EE00A0EF03 /* SpaceXDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXDataProvider.swift; sourceTree = "<group>"; };
 		B58D7D50260127B000F3E861 /* TextCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCollectionViewCell.swift; sourceTree = "<group>"; };
 		B58D7D55260200F900F3E861 /* RocketSizeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketSizeCollectionViewCell.swift; sourceTree = "<group>"; };
+		B58D7D5A26023F2C00F3E861 /* CountryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5A8823825CD6408008D1047 /* RocketPreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketPreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5AE8C6225D7FD1500B3A84E /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		B5E10F7C25EFACE100854561 /* RocketDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDetailsViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		B5184F41241D7A3600C7931F /* UICollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				B58D7D5926023F0F00F3E861 /* Country cell */,
 				B58D7D54260200E300F3E861 /* Rocket size cell */,
 				B58D7D4F2601279600F3E861 /* Text cell */,
 				B5137D2E25F790DB00E265E0 /* Image cell */,
@@ -262,6 +265,14 @@
 				B58D7D55260200F900F3E861 /* RocketSizeCollectionViewCell.swift */,
 			);
 			path = "Rocket size cell";
+			sourceTree = "<group>";
+		};
+		B58D7D5926023F0F00F3E861 /* Country cell */ = {
+			isa = PBXGroup;
+			children = (
+				B58D7D5A26023F2C00F3E861 /* CountryCollectionViewCell.swift */,
+			);
+			path = "Country cell";
 			sourceTree = "<group>";
 		};
 		B5A8823725CD63EB008D1047 /* Rocket preview */ = {
@@ -443,6 +454,7 @@
 				B569B53F25D7DCD60021B11D /* SpaceXRocketEngines.swift in Sources */,
 				B56BF485242142EE00A0EF03 /* SpaceXDataProvider.swift in Sources */,
 				B5184F40241D4DFC00C7931F /* SpaceXAPIData.swift in Sources */,
+				B58D7D5B26023F2C00F3E861 /* CountryCollectionViewCell.swift in Sources */,
 				B5184F1E241CD21800C7931F /* SpaceXLaunch.swift in Sources */,
 				B5184F30241CE12500C7931F /* SpaceXLaunchSite.swift in Sources */,
 				B569B52A25D7D73B0021B11D /* SpaceXRocketSize.swift in Sources */,
