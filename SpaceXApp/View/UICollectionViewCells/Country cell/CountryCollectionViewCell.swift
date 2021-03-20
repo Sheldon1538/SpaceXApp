@@ -21,7 +21,7 @@ class CountryCollectionViewCell: UICollectionViewCell {
     
     let countryFlagLabel: UILabel = {
        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 27, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 25, weight: .regular)
         label.text = "🇺🇸"
         return label
     }()
@@ -29,6 +29,7 @@ class CountryCollectionViewCell: UICollectionViewCell {
     let countryNameLabel: UILabel = {
        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.8)
         label.text = "United States"
         return label
     }()
@@ -41,6 +42,6 @@ class CountryCollectionViewCell: UICollectionViewCell {
     
     private func setupCountryNameLabel() {
         contentView.addSubview(countryNameLabel)
-        countryNameLabel.anchor(top: contentView.topAnchor, leading: countryFlagLabel.trailingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 16, bottom: 0, right: 0))
+        countryNameLabel.anchor(top: contentView.topAnchor, leading: countryFlagLabel.trailingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 8, bottom: 0, right: 0))
     }
 }

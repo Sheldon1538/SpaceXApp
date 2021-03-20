@@ -30,10 +30,14 @@ class RocketDetailsViewController: UIViewController {
         view.backgroundColor = .white
         setupCollectionViewFlowLayout()
         addCollectionView()
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(RocketSizeCollectionViewCell.self, forCellWithReuseIdentifier: "RocketSizeCollectionViewCell")
         collectionView.register(TextCollectionViewCell.self, forCellWithReuseIdentifier: "TextCollectionViewCell")
         collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
         collectionView.register(CountryCollectionViewCell.self, forCellWithReuseIdentifier: "CountryCollectionViewCell")
+        collectionView.register(RocketStageCollectionViewCell.self, forCellWithReuseIdentifier: "RocketStageCollectionViewCell")
+        collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: "Header", withReuseIdentifier: "HeaderCollectionReusableView")
     }
     
     func setupCollectionViewFlowLayout() {
@@ -71,7 +75,7 @@ class RocketDetailsViewController: UIViewController {
             case 2:
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 item.contentInsets = .init(top: 16, leading: 16, bottom: 16, trailing: 16)
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200)), subitems: [item])
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(180)), subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets.top = 16
                 return section
@@ -79,12 +83,17 @@ class RocketDetailsViewController: UIViewController {
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(60)), subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets.leading = 16
+                section.contentInsets.leading = 20
+                return section
+            case 4...5:
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200)), subitems: [item])
+                let section = NSCollectionLayoutSection(group: group)
+                section.boundarySupplementaryItems = [.init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44)), elementKind: "Header", alignment: .topLeading)]
+                section.contentInsets = .init(top: 0, leading: 16, bottom: 16, trailing: 16)
                 return section
             default:
-                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-                item.contentInsets = .init(top: 16, leading: 16, bottom: 16, trailing: 16)
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200)), subitems: [item])
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(0)), subitems: [])
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .paging
                 return section
@@ -104,13 +113,17 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
             return 1
         case 3:
             return 1
+        case 4:
+            return 1
+        case 5:
+            return 1
         default:
             return 0
         }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -131,17 +144,17 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
             }
             return cell
         case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TextCollectionViewCell", for: indexPath) as? TextCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TextCollectionViewCell", for: indexPath) as? TextCollectionViewCell else { return .init() }
             cell.textLabel.text = rocketDetails.description ?? "N/A"
             return cell
         case 2:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RocketSizeCollectionViewCell", for: indexPath) as? RocketSizeCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RocketSizeCollectionViewCell", for: indexPath) as? RocketSizeCollectionViewCell else { return .init() }
             cell.heightValueLabel.text = "\(rocketDetails.height?.meters ?? 0.0) m"
             cell.massValueLabel.text = "\(rocketDetails.mass?.kg ?? 0.0) kg"
             cell.diameterValueLabel.text = "\(rocketDetails.diameter?.meters ?? 0.0) m"
             return cell
         case 3:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CountryCollectionViewCell", for: indexPath) as? CountryCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CountryCollectionViewCell", for: indexPath) as? CountryCollectionViewCell else { return .init() }
             cell.countryNameLabel.text = rocketDetails.country ?? "N/A"
             if rocketDetails.country == "United States" {
                 cell.countryFlagLabel.text = "🇺🇸"
@@ -149,8 +162,39 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
                 cell.countryFlagLabel.text = "🇲🇭"
             }
             return cell
+        case 4:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RocketStageCollectionViewCell", for: indexPath) as? RocketStageCollectionViewCell else { return .init() }
+            cell.enginesValueLabel.text = "\(rocketDetails.firstStage?.engines ?? 0)"
+            cell.burnTimeValueLabel.text = "\(rocketDetails.firstStage?.burnTimeSec ?? 0) seconds"
+            cell.fuelAmountValueLabel.text = "\(rocketDetails.firstStage?.fuelAmountTons ?? 0.0) tons"
+            if let isReusable = rocketDetails.firstStage?.reusable {
+                cell.reusableValueLabel.text = isReusable ? "Yes" : "No"
+            }
+            return cell
+        case 5:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RocketStageCollectionViewCell", for: indexPath) as? RocketStageCollectionViewCell else { return .init() }
+            cell.enginesValueLabel.text = "\(rocketDetails.secondStage?.engines ?? 0)"
+            cell.burnTimeValueLabel.text = "\(rocketDetails.secondStage?.burnTimeSec ?? 0) seconds"
+            cell.fuelAmountValueLabel.text = "\(rocketDetails.secondStage?.fuelAmountTons ?? 0.0) tons"
+            if let isReusable = rocketDetails.secondStage?.reusable {
+                cell.reusableValueLabel.text = isReusable ? "Yes" : "No"
+            }
+            return cell
         default:
             return .init()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderCollectionReusableView", for: indexPath) as? HeaderCollectionReusableView else { return UICollectionReusableView() }
+        switch indexPath.section {
+        case 4:
+            header.headerLabel.text = "Stage 1"
+        case 5:
+            header.headerLabel.text = "Stage 2"
+        default:
+            break
+        }
+        return header
     }
 }
