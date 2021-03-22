@@ -24,6 +24,10 @@ class RocketSizeCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    class var identifier: String {
+        return String(describing: self)
+    }
+    
     let mainView: UIView = {
        let view = UIView()
         view.backgroundColor = .white

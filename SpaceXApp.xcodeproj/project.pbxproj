@@ -31,6 +31,7 @@
 		B5184F59241F772400C7931F /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F58241F772400C7931F /* Date + Extension.swift */; };
 		B5184F5C241F79DE00C7931F /* LaunchInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F5B241F79DE00C7931F /* LaunchInfoTableViewCell.swift */; };
 		B54D634226073F7B00E110DE /* RocketLaunchCostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54D634126073F7B00E110DE /* RocketLaunchCostCollectionViewCell.swift */; };
+		B54D63452608C6DA00E110DE /* RocketDetailsSectionLayoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54D63442608C6DA00E110DE /* RocketDetailsSectionLayoutProvider.swift */; };
 		B569B52725D7D3DB0021B11D /* SpaceXRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569B52625D7D3DB0021B11D /* SpaceXRocket.swift */; };
 		B569B52A25D7D73B0021B11D /* SpaceXRocketSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569B52925D7D73B0021B11D /* SpaceXRocketSize.swift */; };
 		B569B52D25D7D7700021B11D /* SpaceXRocketMass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569B52C25D7D7700021B11D /* SpaceXRocketMass.swift */; };
@@ -87,6 +88,7 @@
 		B5184F58241F772400C7931F /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
 		B5184F5B241F79DE00C7931F /* LaunchInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInfoTableViewCell.swift; sourceTree = "<group>"; };
 		B54D634126073F7B00E110DE /* RocketLaunchCostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunchCostCollectionViewCell.swift; sourceTree = "<group>"; };
+		B54D63442608C6DA00E110DE /* RocketDetailsSectionLayoutProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDetailsSectionLayoutProvider.swift; sourceTree = "<group>"; };
 		B569B52625D7D3DB0021B11D /* SpaceXRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXRocket.swift; sourceTree = "<group>"; };
 		B569B52925D7D73B0021B11D /* SpaceXRocketSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXRocketSize.swift; sourceTree = "<group>"; };
 		B569B52C25D7D7700021B11D /* SpaceXRocketMass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXRocketMass.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				B5137D2E25F790DB00E265E0 /* Image cell */,
 				B5A8823725CD63EB008D1047 /* Rocket preview */,
 				B5184F42241D7A4200C7931F /* Launch preview */,
+				B54D63442608C6DA00E110DE /* RocketDetailsSectionLayoutProvider.swift */,
 			);
 			path = UICollectionViewCells;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				B5AE8C6325D7FD1500B3A84E /* PaddingLabel.swift in Sources */,
 				B5E10F7D25EFACE200854561 /* RocketDetailsViewController.swift in Sources */,
 				B58D7D56260200F900F3E861 /* RocketSizeCollectionViewCell.swift in Sources */,
+				B54D63452608C6DA00E110DE /* RocketDetailsSectionLayoutProvider.swift in Sources */,
 				B5137D3025F790EB00E265E0 /* ImageCollectionViewCell.swift in Sources */,
 				B58D7D51260127B000F3E861 /* TextCollectionViewCell.swift in Sources */,
 				B5754837260363E600DEC299 /* RocketStageCollectionViewCell.swift in Sources */,

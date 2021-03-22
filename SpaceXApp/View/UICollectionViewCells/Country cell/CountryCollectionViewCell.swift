@@ -19,6 +19,10 @@ class CountryCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    class var identifier: String {
+        return String(describing: self)
+    }
+    
     let countryFlagLabel: UILabel = {
        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25, weight: .regular)

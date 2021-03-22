@@ -21,6 +21,10 @@ class RocketLaunchCostCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    class var identifier: String {
+        return String(describing: self)
+    }
+    
     let moneyLabel: UILabel = {
        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22, weight: .heavy) // UIFont.init(name: "AvenirNext-Heavy", size: 22)

@@ -18,6 +18,10 @@ class TextCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    class var identifier: String {
+        return String(describing: self)
+    }
+    
     let textLabel: UILabel = {
        let label = UILabel()
         label.numberOfLines = 0

@@ -18,6 +18,10 @@ class HeaderCollectionReusableView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    class var identifier: String {
+        return String(describing: self)
+    }
+    
     let headerLabel: UILabel = {
        let label = UILabel()
         label.textColor = #colorLiteral(red: 0.09249106795, green: 0.1020474359, blue: 0.1234557405, alpha: 1)
