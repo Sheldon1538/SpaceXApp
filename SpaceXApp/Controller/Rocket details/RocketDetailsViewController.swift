@@ -38,6 +38,7 @@ class RocketDetailsViewController: UIViewController {
         collectionView.register(CountryCollectionViewCell.self, forCellWithReuseIdentifier: "CountryCollectionViewCell")
         collectionView.register(RocketStageCollectionViewCell.self, forCellWithReuseIdentifier: "RocketStageCollectionViewCell")
         collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: "Header", withReuseIdentifier: "HeaderCollectionReusableView")
+        collectionView.register(RocketLaunchCostCollectionViewCell.self, forCellWithReuseIdentifier: "RocketLaunchCostCollectionViewCell")
     }
     
     func setupCollectionViewFlowLayout() {
@@ -92,6 +93,13 @@ class RocketDetailsViewController: UIViewController {
                 section.boundarySupplementaryItems = [.init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44)), elementKind: "Header", alignment: .topLeading)]
                 section.contentInsets = .init(top: 0, leading: 16, bottom: 16, trailing: 16)
                 return section
+            case 6:
+                let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50)), subitems: [item])
+                let section = NSCollectionLayoutSection(group: group)
+                section.boundarySupplementaryItems = [.init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44)), elementKind: "Header", alignment: .topLeading)]
+                section.contentInsets = .init(top: .zero, leading: 16, bottom: 16, trailing: 16)
+                return section
             default:
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(0)), subitems: [])
                 let section = NSCollectionLayoutSection(group: group)
@@ -117,13 +125,15 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
             return 1
         case 5:
             return 1
+        case 6:
+            return 1
         default:
             return 0
         }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 6
+        return 7
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -180,6 +190,10 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
                 cell.reusableValueLabel.text = isReusable ? "Yes" : "No"
             }
             return cell
+        case 6:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RocketLaunchCostCollectionViewCell", for: indexPath) as? RocketLaunchCostCollectionViewCell else { return .init() }
+            cell.moneyLabel.text = "$ \((rocketDetails.costPerLaunch ?? 0).formattedWithSeparator)"
+            return cell
         default:
             return .init()
         }
@@ -192,6 +206,8 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
             header.headerLabel.text = "Stage 1"
         case 5:
             header.headerLabel.text = "Stage 2"
+        case 6:
+            header.headerLabel.text = "Cost per launch"
         default:
             break
         }

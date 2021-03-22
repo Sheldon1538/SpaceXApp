@@ -23,7 +23,7 @@ class RocketStageCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setupMainView()
         setupNameLabels()
-        setupValueLabel()
+        setupValueLabels()
         setupLeftStackView()
         setupRightStackView()
         fillLeftStackView()
@@ -91,7 +91,7 @@ class RocketStageCollectionViewCell: UICollectionViewCell {
         reusableNameLabel.text = "Stage is reusable"
     }
     
-    private func setupValueLabel() {
+    private func setupValueLabels() {
         enginesValueLabel = .init()
         enginesValueLabel.setContentHuggingPriority(UILayoutPriority(251), for: .horizontal)
         fuelAmountValueLabel = .init()

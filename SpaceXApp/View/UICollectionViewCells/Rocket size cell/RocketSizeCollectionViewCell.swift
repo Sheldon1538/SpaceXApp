@@ -18,8 +18,6 @@ class RocketSizeCollectionViewCell: UICollectionViewCell {
         fillRightStackView()
         setupShadows()
         mainView.layer.cornerRadius = 12.0
-       // clipsToBounds = true
-       // backgroundColor = .lightGray
     }
     
     required init?(coder: NSCoder) {
