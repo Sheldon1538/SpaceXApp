@@ -111,7 +111,7 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as? ImageCollectionViewCell else { return UICollectionViewCell() }
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as! ImageCollectionViewCell
             if let imageURL = rocketDetails.flickrImages[indexPath.row] {
                 dataProvider.downloadImage(url: imageURL) { (result) in
                     switch result {
@@ -126,17 +126,17 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
             }
             return cell
         case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TextCollectionViewCell.identifier, for: indexPath) as? TextCollectionViewCell else { return .init() }
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TextCollectionViewCell.identifier, for: indexPath) as! TextCollectionViewCell
             cell.textLabel.text = rocketDetails.description ?? "N/A"
             return cell
         case 2:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketSizeCollectionViewCell.identifier, for: indexPath) as? RocketSizeCollectionViewCell else { return .init() }
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketSizeCollectionViewCell.identifier, for: indexPath) as! RocketSizeCollectionViewCell
             cell.heightValueLabel.text = "\(rocketDetails.height?.meters ?? 0.0) m"
             cell.massValueLabel.text = "\(rocketDetails.mass?.kg ?? 0.0) kg"
             cell.diameterValueLabel.text = "\(rocketDetails.diameter?.meters ?? 0.0) m"
             return cell
         case 3:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CountryCollectionViewCell.identifier, for: indexPath) as? CountryCollectionViewCell else { return .init() }
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CountryCollectionViewCell.identifier, for: indexPath) as! CountryCollectionViewCell
             cell.countryNameLabel.text = rocketDetails.country ?? "N/A"
             if rocketDetails.country == "United States" {
                 cell.countryFlagLabel.text = "🇺🇸"
@@ -145,7 +145,7 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
             }
             return cell
         case 4:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketStageCollectionViewCell.identifier, for: indexPath) as? RocketStageCollectionViewCell else { return .init() }
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketStageCollectionViewCell.identifier, for: indexPath) as! RocketStageCollectionViewCell
             cell.enginesValueLabel.text = "\(rocketDetails.firstStage?.engines ?? 0)"
             cell.burnTimeValueLabel.text = "\(rocketDetails.firstStage?.burnTimeSec ?? 0) seconds"
             cell.fuelAmountValueLabel.text = "\(rocketDetails.firstStage?.fuelAmountTons ?? 0.0) tons"
@@ -154,7 +154,7 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
             }
             return cell
         case 5:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketStageCollectionViewCell.identifier, for: indexPath) as? RocketStageCollectionViewCell else { return .init() }
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketStageCollectionViewCell.identifier, for: indexPath) as! RocketStageCollectionViewCell
             cell.enginesValueLabel.text = "\(rocketDetails.secondStage?.engines ?? 0)"
             cell.burnTimeValueLabel.text = "\(rocketDetails.secondStage?.burnTimeSec ?? 0) seconds"
             cell.fuelAmountValueLabel.text = "\(rocketDetails.secondStage?.fuelAmountTons ?? 0.0) tons"
@@ -163,7 +163,7 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
             }
             return cell
         case 6:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketLaunchCostCollectionViewCell.identifier, for: indexPath) as? RocketLaunchCostCollectionViewCell else { return .init() }
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketLaunchCostCollectionViewCell.identifier, for: indexPath) as! RocketLaunchCostCollectionViewCell
             cell.moneyLabel.text = "$ \((rocketDetails.costPerLaunch ?? 0).formattedWithSeparator)"
             return cell
         default:
@@ -172,7 +172,7 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCollectionReusableView.identifier, for: indexPath) as? HeaderCollectionReusableView else { return UICollectionReusableView() }
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCollectionReusableView.identifier, for: indexPath) as! HeaderCollectionReusableView
         switch indexPath.section {
         case 4:
             header.headerLabel.text = "Stage 1"
