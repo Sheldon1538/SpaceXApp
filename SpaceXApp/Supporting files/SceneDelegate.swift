@@ -25,7 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        let launchesNavigationController = UINavigationController(rootViewController: LaunchesViewController(dataProvider: spaceXDataProvider))
+        let launchesViewController = LaunchesViewController(viewModel: .init(networkService: apiManager))
+        let launchesNavigationController = UINavigationController(rootViewController: launchesViewController)
         launchesNavigationController.navigationBar.prefersLargeTitles = false
         launchesNavigationController.tabBarItem = UITabBarItem(title: "Launches", image: UIImage(systemName: "lineweight")?.withRenderingMode(.automatic), selectedImage: UIImage(systemName: "lineweight")?.withRenderingMode(.automatic))
         

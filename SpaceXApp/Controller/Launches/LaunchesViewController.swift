@@ -19,7 +19,7 @@ struct SpaceXLaunchesUX {
 
 class LaunchesViewController: UIViewController {
     var collectionView: UICollectionView!
-    var dataProvider: SpaceXService!
+    var viewModel: LaunchesViewModel
     
     var spaceXLaunches: [SpaceXLaunch] = [] {
         didSet {
@@ -32,8 +32,8 @@ class LaunchesViewController: UIViewController {
     var launchesPaginationOffset = 0
     var loadedAllLaunches = false
     
-    init(dataProvider: SpaceXDataProvider) {
-        self.dataProvider = dataProvider
+    init(viewModel: LaunchesViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -50,10 +50,11 @@ class LaunchesViewController: UIViewController {
         super.viewDidLoad()
         title = "Launches"
         view.backgroundColor = .white
+        setupViewModel()
+        viewModel.didScrollAllLaunches()
         setupCollectionViewFlowLayout()
         addCollectionView()
         collectionView.register(LaunchPreviewCollectionViewCell.self, forCellWithReuseIdentifier: LaunchPreviewCollectionViewCell.identifier)
-        loadLaunches()
         removeNavigationBarBorderLine()
     }
     
@@ -71,19 +72,10 @@ class LaunchesViewController: UIViewController {
         collectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
     }
     
-    func loadLaunches() {
-        dataProvider.getSpaceXLaunches(paginationOffset: launchesPaginationOffset) { (result) in
-            switch result {
-            case .success(let launches):
-                if launches.isEmpty {
-                    self.loadedAllLaunches = true
-                } else {
-                    self.launchesPaginationOffset += launches.count
-                    self.spaceXLaunches += launches
-                }
-            case .failure(let error):
-                print("Error: " + error.localizedDescription)
-            }
+    private func setupViewModel() {
+        viewModel.didUpdateLaunches = { [weak self] launches in
+            guard let strongSelf = self else { return }
+            strongSelf.spaceXLaunches = launches
         }
     }
     
@@ -107,24 +99,17 @@ extension LaunchesViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LaunchPreviewCollectionViewCell.identifier, for: indexPath) as? LaunchPreviewCollectionViewCell else { print("Error while configuring the cell."); return UICollectionViewCell() }
         cell.configureWith(data: spaceXLaunches[indexPath.row])
-        if let url = spaceXLaunches[indexPath.row].links?.missionPatchSmall {
-            dataProvider.downloadImage(url: url) { (result) in
-                switch result {
-                case .success(let image):
-                    if url == cell.imageUrl {
-                        DispatchQueue.main.async {
-                            cell.rocketImageView.image = image
-                        }
+        if let imageURL = spaceXLaunches[indexPath.row].links?.missionPatchSmall {
+            viewModel.loadImageData(url: imageURL) { (data) in
+                if imageURL == cell.imageUrl {
+                    DispatchQueue.main.async {
+                        if let image = UIImage(data: data) { cell.rocketImageView.image = image }
                     }
-                case .failure(let error):
-                    print("Error: " + error.localizedDescription)
                 }
             }
         }
         if indexPath.row == spaceXLaunches.count-1 {
-            if loadedAllLaunches == false {
-                loadLaunches()
-            }
+            viewModel.didScrollAllLaunches()
         }
         return cell
     }

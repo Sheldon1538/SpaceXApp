@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B50C1EB4262CB7DE001CFD4E /* LaunchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50C1EB3262CB7DE001CFD4E /* LaunchesViewModel.swift */; };
 		B5137D3025F790EB00E265E0 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5137D2F25F790EB00E265E0 /* ImageCollectionViewCell.swift */; };
 		B5184F1E241CD21800C7931F /* SpaceXLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F1D241CD21800C7931F /* SpaceXLaunch.swift */; };
 		B5184F20241CD6D600C7931F /* SpaceXLaunchRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F1F241CD6D600C7931F /* SpaceXLaunchRocket.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B50C1EB3262CB7DE001CFD4E /* LaunchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewModel.swift; sourceTree = "<group>"; };
 		B5137D2F25F790EB00E265E0 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5184F1D241CD21800C7931F /* SpaceXLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunch.swift; sourceTree = "<group>"; };
 		B5184F1F241CD6D600C7931F /* SpaceXLaunchRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchRocket.swift; sourceTree = "<group>"; };
@@ -133,6 +135,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B50C1EB0262CB624001CFD4E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B50C1EB3262CB7DE001CFD4E /* LaunchesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		B5137D2E25F790DB00E265E0 /* Image cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +369,7 @@
 		B5F9F793241C0F8C00CADA76 /* SpaceXApp */ = {
 			isa = PBXGroup;
 			children = (
+				B50C1EB0262CB624001CFD4E /* ViewModel */,
 				B5184F4E241EBB6400C7931F /* Supporting files */,
 				B5184F37241D345D00C7931F /* Networking */,
 				B5F9F7A8241C187D00CADA76 /* Model */,
@@ -517,6 +528,7 @@
 				B5184F22241CD7A200C7931F /* SpaceXLaunchRocketFirstStage.swift in Sources */,
 				B5184F34241CE45A00C7931F /* SpaceXLaunchTimeline.swift in Sources */,
 				B5184F53241ECF4700C7931F /* DetailedLaunchInformationViewController.swift in Sources */,
+				B50C1EB4262CB7DE001CFD4E /* LaunchesViewModel.swift in Sources */,
 				B5184F2E241CE09900C7931F /* SpaceXLaunchTelemetry.swift in Sources */,
 				B5AE8C6325D7FD1500B3A84E /* PaddingLabel.swift in Sources */,
 				B5E10F7D25EFACE200854561 /* RocketDetailsViewController.swift in Sources */,
