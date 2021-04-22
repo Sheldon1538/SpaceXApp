@@ -8,19 +8,24 @@
 
 import Foundation
 
-final class LaunchesViewModel {
-    var didUpdateLaunches: (([SpaceXLaunch]) -> Void)?
+protocol LaunchesViewModelProtocol {
+    var  didUpdateLaunches: (([LaunchViewModel]) -> Void)? { get set }
+    func didScrollAllLaunches()
+    func loadImageData(url: String, completion: @escaping(Data) -> Void)
+}
+
+final class LaunchesViewModel: LaunchesViewModelProtocol {
+    var didUpdateLaunches: (([LaunchViewModel]) -> Void)?
     
     private var spaceXLaunches: [SpaceXLaunch] = [] {
         didSet {
-            didUpdateLaunches?(self.spaceXLaunches)
+            didUpdateLaunches?(spaceXLaunches.map { LaunchViewModel(launch: $0) })
         }
     }
     var loadedAllLaunches = false
     
     private let networkService: APIManager
     private var launchPaginationOffset = 0
-    private var imageDataCache = NSCache<NSString, NSData>()
     
     init(networkService: APIManager) {
         self.networkService = networkService
@@ -50,20 +55,15 @@ final class LaunchesViewModel {
     }
     
     func loadImageData(url: String, completion: @escaping(Data) -> Void) {
-        let cacheID = NSString(string: url)
-        if let cachedData = imageDataCache.object(forKey: cacheID) {
-            completion(cachedData as Data)
-        } else {
-            networkService.loadData(urlString: url) { (result) in
-                switch result {
-                case .success(let data):
-                    self.imageDataCache.setObject(data as NSData, forKey: cacheID)
-                    completion(data)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    // TODO: Error handling
-                }
+        networkService.loadData(urlString: url) { (result) in
+            switch result {
+            case .success(let data):
+                completion(data)
+            case .failure(let error):
+                print(error.localizedDescription)
+            // TODO: Error handling
             }
         }
+        
     }
 }

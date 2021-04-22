@@ -70,33 +70,23 @@ class LaunchInfoTableViewCell: UITableViewCell {
         valueLabel.leadingAnchor.constraint(greaterThanOrEqualTo: nameLabel.trailingAnchor, constant: 16.0).isActive = true
     }
     
-    func configureWith(data: SpaceXLaunch, row: Int) {
+    func configureWith(data: LaunchViewModelProtocol, row: Int) {
         switch row {
         case 0:
             nameLabel.text = "Details"
-            valueLabel.text = data.details ?? "No details provided"
+            valueLabel.text = data.details
         case 1:
             nameLabel.text = "Launch site"
-            valueLabel.text = data.launchSite?.siteNameLong ?? "No data"
+            valueLabel.text = data.siteName
         case 2:
             nameLabel.text = "Flight number"
-            if let flightNumber = data.flightNumber {
-                valueLabel.text = "\(flightNumber)"
-            } else {
-                valueLabel.text = "No data"
-            }
+            valueLabel.text = data.flightNumber
         case 3:
             nameLabel.text = "Rocket name"
-            valueLabel.text = data.rocket?.rocketName ?? "No data"
+            valueLabel.text = data.rocketName
         case 4:
             nameLabel.text = "Result"
-            if data.upcoming == true {
-                valueLabel.text = "Upcoming launch"
-            } else {
-                if let result = data.launchSuccess {
-                    valueLabel.text = result ? "Success" : "Failed"
-                }
-            }
+            valueLabel.text = data.result
         default:
             break
         }

@@ -19,9 +19,9 @@ struct SpaceXLaunchesUX {
 
 class LaunchesViewController: UIViewController {
     var collectionView: UICollectionView!
-    var viewModel: LaunchesViewModel
+    var viewModel: LaunchesViewModelProtocol
     
-    var spaceXLaunches: [SpaceXLaunch] = [] {
+    var spaceXLaunches: [LaunchViewModelProtocol] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -32,7 +32,7 @@ class LaunchesViewController: UIViewController {
     var launchesPaginationOffset = 0
     var loadedAllLaunches = false
     
-    init(viewModel: LaunchesViewModel) {
+    init(viewModel: LaunchesViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -79,7 +79,7 @@ class LaunchesViewController: UIViewController {
         }
     }
     
-    func presentDetailedInformationController(with data: SpaceXLaunch) {
+    func presentDetailedInformationController(with data: LaunchViewModelProtocol) {
         let detailedLaunchInformationViewController = DetailedLaunchInformationViewController(launch: data)
         navigationController?.pushViewController(detailedLaunchInformationViewController, animated: true)
     }
@@ -99,12 +99,10 @@ extension LaunchesViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LaunchPreviewCollectionViewCell.identifier, for: indexPath) as? LaunchPreviewCollectionViewCell else { print("Error while configuring the cell."); return UICollectionViewCell() }
         cell.configureWith(data: spaceXLaunches[indexPath.row])
-        if let imageURL = spaceXLaunches[indexPath.row].links?.missionPatchSmall {
-            viewModel.loadImageData(url: imageURL) { (data) in
-                if imageURL == cell.imageUrl {
-                    DispatchQueue.main.async {
-                        if let image = UIImage(data: data) { cell.rocketImageView.image = image }
-                    }
+        viewModel.loadImageData(url: spaceXLaunches[indexPath.row].imageURL) { (data) in
+            if self.spaceXLaunches[indexPath.row].imageURL == cell.imageUrl {
+                DispatchQueue.main.async {
+                    if let image = UIImage(data: data) { cell.rocketImageView.image = image }
                 }
             }
         }

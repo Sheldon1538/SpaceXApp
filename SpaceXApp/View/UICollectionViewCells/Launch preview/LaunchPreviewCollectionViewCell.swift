@@ -121,24 +121,12 @@ class LaunchPreviewCollectionViewCell: UICollectionViewCell {
         layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
     }
     
-    func configureWith(data: SpaceXLaunch) {
-        missionNameLabel.text = data.missionName ?? "No data"
-        rocketNameLabel.text  = data.rocket?.rocketName ?? "No rocket name information"
-        siteNameLabel.text    = data.launchSite?.siteNameLong ?? "No site name information"
-        if let utcString = data.launchDateUtc {
-            if let displayDate = Date().getDateStringInDisplayFormat(utcString: utcString, format: DateFormats.spaceXLaunch) {
-                launchDateLabel.text = displayDate
-            }
-        }
-        if data.upcoming == true {
-            resultLabel.text = "Upcoming launch"
-        } else {
-            if let result = data.launchSuccess {
-                resultLabel.text = result ? "Successful launch" : "Failed launch"
-            }
-        }
-        if let imageURLString = data.links?.missionPatchSmall {
-            imageUrl = imageURLString
-        }
+    func configureWith(data: LaunchViewModelProtocol) {
+        imageUrl              = data.imageURL
+        missionNameLabel.text = data.missionName
+        rocketNameLabel.text  = data.rocketName
+        siteNameLabel.text    = data.siteName
+        launchDateLabel.text  = data.date
+        resultLabel.text      = data.result
     }
 }

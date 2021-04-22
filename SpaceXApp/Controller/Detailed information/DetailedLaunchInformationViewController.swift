@@ -11,9 +11,9 @@ import UIKit
 class DetailedLaunchInformationViewController: UIViewController {
     
     var tableView: UITableView!
-    var launch: SpaceXLaunch!
+    var launch: LaunchViewModelProtocol
     
-    init(launch: SpaceXLaunch) {
+    init(launch: LaunchViewModelProtocol) {
         self.launch = launch
         super.init(nibName: nil, bundle: nil)
     }
@@ -46,9 +46,7 @@ class DetailedLaunchInformationViewController: UIViewController {
     }
     
     func configureData() {
-        if let missionName = launch.missionName {
-            title = missionName
-        }
+        title = launch.missionName
     }
 }
 

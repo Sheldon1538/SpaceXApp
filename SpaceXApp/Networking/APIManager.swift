@@ -11,8 +11,10 @@ import Foundation
 class APIManager {
     public func loadData(urlString: String, completion: @escaping(Result<Data, Error>) -> Void) {
         guard let url = URL(string: urlString) else { return }
-        let urlRequest = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10)
-        URLSession.shared.dataTask(with: urlRequest) { (data, urlResponse, error) in
+        let urlRequest = URLRequest(url: url)
+        let session = URLSession(configuration: .default)
+        session.configuration.requestCachePolicy = .returnCacheDataElseLoad
+        session.dataTask(with: urlRequest) { (data, urlResponse, error) in
             if let error = error {
                 completion(.failure(error))
             }
