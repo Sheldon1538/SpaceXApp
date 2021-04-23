@@ -12,7 +12,7 @@ class GenericValueLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        textColor = .black
+        textColor = UIColor(named: "cellTitle")
         text = "N/A"
     }
     

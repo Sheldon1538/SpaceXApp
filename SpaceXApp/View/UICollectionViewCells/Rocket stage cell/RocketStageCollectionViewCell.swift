@@ -41,7 +41,7 @@ class RocketStageCollectionViewCell: UICollectionViewCell {
     
     let mainView: UIView = {
        let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "cellBackground")
         view.layer.cornerRadius = 12.0
         return view
     }()

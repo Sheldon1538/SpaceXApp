@@ -12,7 +12,7 @@ class GenericNameLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        textColor = .black
+        textColor = UIColor(named: "cellTitle")
     }
     
     required init?(coder: NSCoder) {

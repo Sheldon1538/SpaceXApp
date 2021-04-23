@@ -9,41 +9,72 @@
 import Foundation
 
 final class RocketViewModel {
-    var secondStage: SpaceXRocketSecondStage?
-    var images: [String?]
-    var costPerLaunch: String
-    var country: String
-    var height: String
-    var diameter: String
-    var mass: String
-    var rocketName: String
-    var engines: String
-    var firstLaunchDate: String
-    var rocketDescription: String
-    var firstStage: SpaceXRocketFirstStage?
-    var countryFlag: String = ""
+    private let rocket: SpaceXRocket
     
     private let networkService: APIManager
-    var imageCache = NSCache<NSString, NSData>()
+    
+    private let imageCache = NSCache<NSString, NSData>()
+    
+    var secondStage: SpaceXRocketSecondStage? {
+        return rocket.secondStage
+    }
+    
+    var images: [String?] {
+        return rocket.flickrImages
+    }
+    
+    var costPerLaunch: String {
+        return "$ \((rocket.costPerLaunch ?? 0).formattedWithSeparator)"
+    }
+    
+    var country: String {
+        return rocket.country ?? "N/A"
+    }
+    
+    var height: String {
+        return "\(rocket.height?.meters ?? 0.0) m"
+    }
+    
+    var diameter: String {
+        return "\(rocket.diameter?.meters ?? 0.0) m"
+    }
+    
+    var mass: String {
+        return "\(rocket.mass?.kg ?? 0.0) kg"
+    }
+    
+    var rocketName: String {
+        return rocket.name ?? "N/A"
+    }
+    
+    var engines: String {
+        return "\(rocket.engines?.number ?? 0) engines"
+    }
+    
+    var firstLaunchDate: String {
+        return Date().getDateStringInDisplayFormat(utcString: rocket.firstFlight ?? "N/A", format: DateFormats.spaceXRocketFirstLaunch) ?? "N/A"
+    }
+    
+    var rocketDescription: String {
+        return rocket.description ?? "N/A"
+    }
+    
+    var firstStage: SpaceXRocketFirstStage? {
+        return rocket.firstStage
+    }
+    
+    var countryFlag: String {
+        if country == "United States" {
+            return "🇺🇸"
+        } else if country == "Republic of the Marshall Islands" {
+            return "🇲🇭"
+        }
+        return ""
+    }
+    
     
     init(rocket: SpaceXRocket, networkService: APIManager) {
-        self.rocketName = rocket.name ?? "N/A"
-        self.engines = "\(rocket.engines?.number ?? 0) engines"
-        self.firstLaunchDate =  Date().getDateStringInDisplayFormat(utcString: rocket.firstFlight ?? "N/A", format: DateFormats.spaceXRocketFirstLaunch) ?? "N/A"
-        self.rocketDescription = rocket.description ?? "N/A"
-        self.firstStage = rocket.firstStage
-        self.height = "\(rocket.height?.meters ?? 0.0) m"
-        self.diameter = "\(rocket.diameter?.meters ?? 0.0) m"
-        self.mass = "\(rocket.mass?.kg ?? 0.0) kg"
-        self.country = rocket.country ?? "N/A"
-        self.costPerLaunch = "$ \((rocket.costPerLaunch ?? 0).formattedWithSeparator)"
-        self.images = rocket.flickrImages
-        self.secondStage = rocket.secondStage
-        if country == "United States" {
-            countryFlag = "🇺🇸"
-        } else if country == "Republic of the Marshall Islands" {
-            countryFlag = "🇲🇭"
-        }
+        self.rocket = rocket
         self.networkService = networkService
     }
     

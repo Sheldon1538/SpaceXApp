@@ -13,7 +13,7 @@ class RocketLaunchCostCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setupMoneyLabel()
         
-        backgroundColor = #colorLiteral(red: 0.9254091382, green: 0.9255421162, blue: 0.9253800511, alpha: 0.35)
+        backgroundColor = UIColor(named: "costCellBackground")
         layer.cornerRadius = 12.0
     }
     
@@ -27,8 +27,8 @@ class RocketLaunchCostCollectionViewCell: UICollectionViewCell {
     
     let moneyLabel: UILabel = {
        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 22, weight: .heavy) // UIFont.init(name: "AvenirNext-Heavy", size: 22)
-        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 22, weight: .heavy)
+        label.textColor = UIColor(named: "cellTitle")
         return label
     }()
     

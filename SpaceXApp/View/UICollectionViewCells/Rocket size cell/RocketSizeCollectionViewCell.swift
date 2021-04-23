@@ -30,7 +30,7 @@ class RocketSizeCollectionViewCell: UICollectionViewCell {
     
     let mainView: UIView = {
        let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "cellBackground")
         return view
     }()
     

@@ -37,7 +37,7 @@ class RocketPreviewCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
-        label.textColor = .black
+        label.textColor = UIColor(named: "cellTitle")
         label.font = UIFont.systemFont(ofSize: 18, weight: .black)
         return label
     }()
@@ -66,7 +66,7 @@ class RocketPreviewCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
-        label.textColor = .black
+        label.textColor = UIColor(named: "cellTitle")
         label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         return label
     }()
@@ -84,7 +84,7 @@ class RocketPreviewCollectionViewCell: UICollectionViewCell {
     let rocketDetailsBackgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "cellBackground")
         view.layer.cornerRadius = 8.0
         return view
     }()

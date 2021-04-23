@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol LaunchesViewModelProtocol {
+protocol LaunchesViewModelProtocol: AnyObject {
     var  didUpdateLaunches: (([LaunchViewModel]) -> Void)? { get set }
     func didScrollAllLaunches()
     func loadImageData(url: String, completion: @escaping(Data) -> Void)

@@ -49,7 +49,7 @@ class LaunchesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Launches"
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "background")
         setupViewModel()
         viewModel.didScrollAllLaunches()
         setupCollectionViewFlowLayout()

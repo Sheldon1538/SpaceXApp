@@ -35,7 +35,7 @@ class LaunchPreviewCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
-        label.textColor = .black
+        label.textColor = UIColor(named: "cellTitle")
         label.font = UIFont.systemFont(ofSize: 18, weight: .black)
         return label
     }()
@@ -80,7 +80,7 @@ class LaunchPreviewCollectionViewCell: UICollectionViewCell {
     let resultLabel = DetailedInfoLabel()
     
     private func setupView() {
-        backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backgroundColor = UIColor(named: "cellBackground")
         layer.cornerRadius = 12.0
         setupMissionNameLabel()
         setupSeparator()

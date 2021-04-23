@@ -26,7 +26,7 @@ class TextCollectionViewCell: UICollectionViewCell {
        let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        label.textColor = UIColor(named: "cellTitle")
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

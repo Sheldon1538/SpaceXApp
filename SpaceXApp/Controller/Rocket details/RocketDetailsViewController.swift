@@ -25,7 +25,7 @@ class RocketDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.rocketName
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "background")
         setupCollectionViewFlowLayout()
         addCollectionView()
         registerCollectionViewCells()

@@ -41,7 +41,7 @@ class RocketsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Rockets"
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "background")
         setupCollectionViewFlowLayout()
         addCollectionView()
         collectionView.register(RocketPreviewCollectionViewCell.self, forCellWithReuseIdentifier: RocketPreviewCollectionViewCell.identifier)

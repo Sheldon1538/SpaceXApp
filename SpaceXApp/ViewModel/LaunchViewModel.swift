@@ -9,28 +9,45 @@
 import Foundation
 
 final class LaunchViewModel {
-    var imageURL: String
-    var flightNumber: String
-    var details: String
-    var missionName: String
-    var rocketName: String
-    var date: String
-    var siteName: String
-    var result: String
+    private let launch: SpaceXLaunch
+    
+    var imageURL: String {
+        return launch.links?.missionPatchSmall ?? ""
+    }
+    
+    var flightNumber: String {
+        return "\(launch.flightNumber ?? 0)"
+    }
+    
+    var details: String {
+        return launch.details ?? "No details provided"
+    }
+    
+    var missionName: String {
+        return launch.missionName ?? "N/A"
+    }
+    
+    var rocketName: String {
+        return launch.rocket?.rocketName ?? "N/A"
+    }
+    
+    var date: String {
+        return Date().getDateStringInDisplayFormat(utcString: launch.launchDateUtc ?? "N/A", format: DateFormats.spaceXLaunch) ?? "N/A"
+    }
+    
+    var siteName: String {
+        return launch.launchSite?.siteName ?? "N/A"
+    }
+    
+    var result: String {
+        if launch.upcoming ?? false {
+            return "Upcoming launch"
+        } else {
+            return launch.launchSuccess ?? false ? "Successful launch" : "Failed launch"
+        }
+    }
     
     init(launch: SpaceXLaunch) {
-        self.missionName  = launch.missionName ?? "N/A"
-        self.rocketName   = launch.rocket?.rocketName ?? "N/A"
-        self.siteName     = launch.launchSite?.siteName ?? "N/A"
-        if launch.upcoming ?? false {
-            self.result = "Upcoming launch"
-        } else {
-            self.result       = launch.launchSuccess ?? false ? "Successful launch" : "Failed launch"
-        }
-        self.date         = Date().getDateStringInDisplayFormat(utcString: launch.launchDateUtc ?? "N/A", format: DateFormats.spaceXLaunch) ?? "N/A"
-        self.details      = launch.details ?? "No details provided"
-        self.flightNumber = "\(launch.flightNumber ?? 0)"
-        self.imageURL     = launch.links?.missionPatchSmall ?? ""
-        
+        self.launch = launch
     }
 }

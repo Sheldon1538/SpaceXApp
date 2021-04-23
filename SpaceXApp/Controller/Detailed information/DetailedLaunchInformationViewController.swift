@@ -24,7 +24,7 @@ class DetailedLaunchInformationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "background")
         configureData()
         setupTableView()
         addTableView()

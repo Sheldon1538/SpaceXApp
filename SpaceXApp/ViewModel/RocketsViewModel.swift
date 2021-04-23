@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol RocketsViewModelProtocol {
+protocol RocketsViewModelProtocol: AnyObject {
     var didUpdateRockets: (([RocketViewModel]) -> Void)? { get set }
     func loadImageData(url: String, completion: @escaping(Data) -> Void)
     func fetch()

@@ -13,7 +13,7 @@ class DetailedInfoLabel: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        textColor = #colorLiteral(red: 0.2863664329, green: 0.2646090984, blue: 0.2535416782, alpha: 1)
+        textColor = UIColor(named: "cellDetails")
         font = UIFont.systemFont(ofSize: 14, weight: .heavy)
         translatesAutoresizingMaskIntoConstraints = false
     }
