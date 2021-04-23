@@ -11,9 +11,9 @@ import UIKit
 class DetailedLaunchInformationViewController: UIViewController {
     
     var tableView: UITableView!
-    var launch: LaunchViewModelProtocol
+    var launch: LaunchViewModel
     
-    init(launch: LaunchViewModelProtocol) {
+    init(launch: LaunchViewModel) {
         self.launch = launch
         super.init(nibName: nil, bundle: nil)
     }

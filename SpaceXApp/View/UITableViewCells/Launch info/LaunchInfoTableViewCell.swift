@@ -70,7 +70,7 @@ class LaunchInfoTableViewCell: UITableViewCell {
         valueLabel.leadingAnchor.constraint(greaterThanOrEqualTo: nameLabel.trailingAnchor, constant: 16.0).isActive = true
     }
     
-    func configureWith(data: LaunchViewModelProtocol, row: Int) {
+    func configureWith(data: LaunchViewModel, row: Int) {
         switch row {
         case 0:
             nameLabel.text = "Details"

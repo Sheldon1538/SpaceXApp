@@ -19,9 +19,9 @@ struct SpaceXRocketsUX {
 
 class RocketsViewController: UIViewController {
     var collectionView: UICollectionView!
-    var dataProvider: SpaceXDataProvider!
+    var viewModel: RocketsViewModelProtocol
     
-    var rockets: [SpaceXRocket] = [] {
+    var rockets: [RocketViewModel] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -29,8 +29,8 @@ class RocketsViewController: UIViewController {
         }
     }
     
-    init(dataProvider: SpaceXDataProvider) {
-        self.dataProvider = dataProvider
+    init(viewModel: RocketsViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -45,18 +45,15 @@ class RocketsViewController: UIViewController {
         setupCollectionViewFlowLayout()
         addCollectionView()
         collectionView.register(RocketPreviewCollectionViewCell.self, forCellWithReuseIdentifier: RocketPreviewCollectionViewCell.identifier)
-        loadRockets()
+        setupViewModel()
+        viewModel.fetch()
         removeNavigationBarBorderLine()
     }
     
-    func loadRockets() {
-        dataProvider.getSpaceXRockets { (result) in
-            switch result {
-            case .success(let rockets):
-                self.rockets = rockets
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
+    func setupViewModel() {
+        viewModel.didUpdateRockets = { [weak self] rockets in
+            guard let strongSelf = self else { return }
+            strongSelf.rockets = rockets
         }
     }
     
@@ -80,8 +77,8 @@ class RocketsViewController: UIViewController {
         collectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor)
     }
     
-    func presentRocketDetailsViewController(rocketDetails: SpaceXRocket) {
-        let viewController = RocketDetailsViewController(rocketDetails: rocketDetails, dataProvider: dataProvider)
+    func presentRocketDetailsViewController(viewModel: RocketViewModel) {
+        let viewController = RocketDetailsViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
@@ -93,28 +90,19 @@ extension RocketsViewController: UICollectionViewDelegate, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketPreviewCollectionViewCell.identifier, for: indexPath) as? RocketPreviewCollectionViewCell else { return UICollectionViewCell() }
-        cell.rocketNameLabel.text = rockets[indexPath.row].name ?? "no data"
-        if rockets[indexPath.row].engines?.number == 1 {
-            cell.rocketEnginesLabel.text = "1 engine"
-        } else {
-            cell.rocketEnginesLabel.text = "\(rockets[indexPath.row].engines?.number ?? 0) engines"
-        }
-        if let firstLaunchDate = rockets[indexPath.row].firstFlight {
-            cell.firstLaunchLabel.text = Date().getDateStringInDisplayFormat(utcString: firstLaunchDate, format: DateFormats.spaceXRocketFirstLaunch)
-        }
-        cell.rocketDescriptionLabel.text = rockets[indexPath.row].description ?? "no data"
-        if let imageURL = rockets[indexPath.row].flickrImages.first.flatMap({$0}) {
+        cell.rocketNameLabel.text = rockets[indexPath.row].rocketName
+        cell.rocketEnginesLabel.text = rockets[indexPath.row].engines
+        cell.firstLaunchLabel.text = rockets[indexPath.row].firstLaunchDate
+        cell.rocketDescriptionLabel.text = rockets[indexPath.row].rocketDescription
+        if let imageURL = rockets[indexPath.row].images.first.flatMap({$0}) {
             cell.imageURL = imageURL
-            dataProvider.downloadImage(url: imageURL) { (result) in
-                switch result {
-                case .success(let image):
-                    if imageURL == cell.imageURL {
-                        DispatchQueue.main.async {
+            viewModel.loadImageData(url: imageURL) { (data) in
+                if imageURL == cell.imageURL {
+                    DispatchQueue.main.async {
+                        if let image = UIImage(data: data) {
                             cell.rocketImageView.image = image
                         }
                     }
-                case .failure(let error):
-                    print(error.localizedDescription)
                 }
             }
         }
@@ -134,6 +122,6 @@ extension RocketsViewController: UICollectionViewDelegate, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presentRocketDetailsViewController(rocketDetails: rockets[indexPath.row])
+        presentRocketDetailsViewController(viewModel: rockets[indexPath.row])
     }
 }

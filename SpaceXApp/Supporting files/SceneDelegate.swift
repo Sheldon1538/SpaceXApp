@@ -20,7 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let apiManager = APIManager()
-        let spaceXDataProvider = SpaceXDataProvider(apiManager: apiManager)
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
@@ -30,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         launchesNavigationController.navigationBar.prefersLargeTitles = false
         launchesNavigationController.tabBarItem = UITabBarItem(title: "Launches", image: UIImage(systemName: "lineweight")?.withRenderingMode(.automatic), selectedImage: UIImage(systemName: "lineweight")?.withRenderingMode(.automatic))
         
-        let rocketsNavigationController = UINavigationController(rootViewController: RocketsViewController(dataProvider: spaceXDataProvider))
+        let rocketsNavigationController = UINavigationController(rootViewController: RocketsViewController(viewModel: RocketsViewModel(networkService: apiManager)))
         rocketsNavigationController.navigationBar.prefersLargeTitles = false
         rocketsNavigationController.tabBarItem = UITabBarItem(title: "Rockets", image: UIImage(systemName: "folder")?.withRenderingMode(.automatic), selectedImage: UIImage(systemName: "linewight")?.withRenderingMode(.automatic))
         

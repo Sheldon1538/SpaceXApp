@@ -121,7 +121,7 @@ class LaunchPreviewCollectionViewCell: UICollectionViewCell {
         layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
     }
     
-    func configureWith(data: LaunchViewModelProtocol) {
+    func configureWith(data: LaunchViewModel) {
         imageUrl              = data.imageURL
         missionNameLabel.text = data.missionName
         rocketNameLabel.text  = data.rocketName

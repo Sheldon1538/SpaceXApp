@@ -9,14 +9,12 @@
 import UIKit
 
 class RocketDetailsViewController: UIViewController {
-    let rocketDetails: SpaceXRocket!
-    var dataProvider: SpaceXDataProvider!
+    let viewModel: RocketViewModel
     var collectionView: UICollectionView!
     var imagePageControl: UIPageControl!
     
-    init(rocketDetails: SpaceXRocket, dataProvider: SpaceXDataProvider) {
-        self.rocketDetails = rocketDetails
-        self.dataProvider = dataProvider
+    init(viewModel: RocketViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,7 +24,7 @@ class RocketDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = rocketDetails.name ?? "Rocket name"
+        title = viewModel.rocketName
         view.backgroundColor = .white
         setupCollectionViewFlowLayout()
         addCollectionView()
@@ -86,7 +84,7 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return rocketDetails.flickrImages.count
+            return viewModel.images.count
         case 1:
             return 1
         case 2:
@@ -112,59 +110,53 @@ extension RocketDetailsViewController: UICollectionViewDelegateFlowLayout, UICol
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as! ImageCollectionViewCell
-            if let imageURL = rocketDetails.flickrImages[indexPath.row] {
-                dataProvider.downloadImage(url: imageURL) { (result) in
-                    switch result {
-                    case .success(let image):
-                        DispatchQueue.main.async {
+            
+            if let imageURL = viewModel.images[indexPath.row] {
+                viewModel.loadImageData(url: imageURL) { (data) in
+                    DispatchQueue.main.async {
+                        if let image = UIImage(data: data) {
                             cell.imageView.image = image
                         }
-                    case .failure(let error):
-                        print(error.localizedDescription)
                     }
                 }
             }
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TextCollectionViewCell.identifier, for: indexPath) as! TextCollectionViewCell
-            cell.textLabel.text = rocketDetails.description ?? "N/A"
+            cell.textLabel.text = viewModel.rocketDescription
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketSizeCollectionViewCell.identifier, for: indexPath) as! RocketSizeCollectionViewCell
-            cell.heightValueLabel.text = "\(rocketDetails.height?.meters ?? 0.0) m"
-            cell.massValueLabel.text = "\(rocketDetails.mass?.kg ?? 0.0) kg"
-            cell.diameterValueLabel.text = "\(rocketDetails.diameter?.meters ?? 0.0) m"
+            cell.heightValueLabel.text = viewModel.height
+            cell.massValueLabel.text = viewModel.mass
+            cell.diameterValueLabel.text = viewModel.diameter
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CountryCollectionViewCell.identifier, for: indexPath) as! CountryCollectionViewCell
-            cell.countryNameLabel.text = rocketDetails.country ?? "N/A"
-            if rocketDetails.country == "United States" {
-                cell.countryFlagLabel.text = "🇺🇸"
-            } else if rocketDetails.country == "Republic of the Marshall Islands" {
-                cell.countryFlagLabel.text = "🇲🇭"
-            }
+            cell.countryNameLabel.text = viewModel.country
+            cell.countryFlagLabel.text = viewModel.countryFlag
             return cell
         case 4:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketStageCollectionViewCell.identifier, for: indexPath) as! RocketStageCollectionViewCell
-            cell.enginesValueLabel.text = "\(rocketDetails.firstStage?.engines ?? 0)"
-            cell.burnTimeValueLabel.text = "\(rocketDetails.firstStage?.burnTimeSec ?? 0) seconds"
-            cell.fuelAmountValueLabel.text = "\(rocketDetails.firstStage?.fuelAmountTons ?? 0.0) tons"
-            if let isReusable = rocketDetails.firstStage?.reusable {
+            cell.enginesValueLabel.text = "\(viewModel.firstStage?.engines ?? 0)"
+            cell.burnTimeValueLabel.text = "\(viewModel.firstStage?.burnTimeSec ?? 0) seconds"
+            cell.fuelAmountValueLabel.text = "\(viewModel.firstStage?.fuelAmountTons ?? 0.0) tons"
+            if let isReusable = viewModel.firstStage?.reusable {
                 cell.reusableValueLabel.text = isReusable ? "Yes" : "No"
             }
             return cell
         case 5:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketStageCollectionViewCell.identifier, for: indexPath) as! RocketStageCollectionViewCell
-            cell.enginesValueLabel.text = "\(rocketDetails.secondStage?.engines ?? 0)"
-            cell.burnTimeValueLabel.text = "\(rocketDetails.secondStage?.burnTimeSec ?? 0) seconds"
-            cell.fuelAmountValueLabel.text = "\(rocketDetails.secondStage?.fuelAmountTons ?? 0.0) tons"
-            if let isReusable = rocketDetails.secondStage?.reusable {
+            cell.enginesValueLabel.text = "\(viewModel.secondStage?.engines ?? 0)"
+            cell.burnTimeValueLabel.text = "\(viewModel.secondStage?.burnTimeSec ?? 0) seconds"
+            cell.fuelAmountValueLabel.text = "\(viewModel.secondStage?.fuelAmountTons ?? 0.0) tons"
+            if let isReusable = viewModel.secondStage?.reusable {
                 cell.reusableValueLabel.text = isReusable ? "Yes" : "No"
             }
             return cell
         case 6:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RocketLaunchCostCollectionViewCell.identifier, for: indexPath) as! RocketLaunchCostCollectionViewCell
-            cell.moneyLabel.text = "$ \((rocketDetails.costPerLaunch ?? 0).formattedWithSeparator)"
+            cell.moneyLabel.text = viewModel.costPerLaunch
             return cell
         default:
             return .init()

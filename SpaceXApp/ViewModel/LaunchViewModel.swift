@@ -8,18 +8,7 @@
 
 import Foundation
 
-protocol LaunchViewModelProtocol {
-    var missionName: String { get }
-    var rocketName: String { get }
-    var date: String { get }
-    var siteName: String { get }
-    var result: String { get }
-    var details: String { get }
-    var flightNumber: String { get }
-    var imageURL: String { get }
-}
-
-final class LaunchViewModel: LaunchViewModelProtocol {
+final class LaunchViewModel {
     var imageURL: String
     var flightNumber: String
     var details: String

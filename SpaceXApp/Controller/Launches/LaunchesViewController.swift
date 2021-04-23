@@ -21,7 +21,7 @@ class LaunchesViewController: UIViewController {
     var collectionView: UICollectionView!
     var viewModel: LaunchesViewModelProtocol
     
-    var spaceXLaunches: [LaunchViewModelProtocol] = [] {
+    var spaceXLaunches: [LaunchViewModel] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -79,7 +79,7 @@ class LaunchesViewController: UIViewController {
         }
     }
     
-    func presentDetailedInformationController(with data: LaunchViewModelProtocol) {
+    func presentDetailedInformationController(with data: LaunchViewModel) {
         let detailedLaunchInformationViewController = DetailedLaunchInformationViewController(launch: data)
         navigationController?.pushViewController(detailedLaunchInformationViewController, animated: true)
     }
