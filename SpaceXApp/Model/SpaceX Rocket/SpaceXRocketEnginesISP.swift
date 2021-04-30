@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SpaceXRocketEnginesISP: Codable {
+struct SpaceXRocketEnginesISP: Decodable {
     var seaLevel: Int?
     var vacuum: Int?
     

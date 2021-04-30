@@ -8,9 +8,8 @@
 
 import Foundation
 
-protocol RocketsViewModelProtocol: AnyObject {
+protocol RocketsViewModelProtocol: ViewModelImageRepresentable, AnyObject {
     var didUpdateRockets: (([RocketViewModel]) -> Void)? { get set }
-    func loadImageData(url: String, completion: @escaping(Data) -> Void)
     func fetch()
 }
 
@@ -18,18 +17,18 @@ final class RocketsViewModel: RocketsViewModelProtocol {
     var didUpdateRockets: (([RocketViewModel]) -> Void)?
     private var rockets: [SpaceXRocket] = [] {
         didSet {
-            didUpdateRockets?(self.rockets.map { RocketViewModel(rocket: $0, networkService: self.networkService) })
+            didUpdateRockets?(self.rockets.map { RocketViewModel(rocket: $0, apiService: self.apiService) })
         }
     }
-    private let networkService: APIManager
+    private let apiService: APIClient
     
-    init(networkService: APIManager) {
-        self.networkService = networkService
+    init(apiService: APIClient) {
+        self.apiService = apiService
     }
     
     func fetch() {
-        let urlString = SpaceXAPIData.baseURL + SpaceXAPIData.Version.v4 + SpaceXAPIData.Endpoint.rockets
-        networkService.fetch(url: urlString, type: [SpaceXRocket].self) { (result) in
+        let request = SpaceXRocketsRequest()
+        apiService.send(request) { (result) in
             switch result {
             case .success(let rockets):
                 self.rockets = rockets
@@ -40,7 +39,7 @@ final class RocketsViewModel: RocketsViewModelProtocol {
     }
     
     func loadImageData(url: String, completion: @escaping(Data) -> Void) {
-        networkService.loadData(urlString: url) { (result) in
+        apiService.loadData(url: url) { (result) in
             switch result {
             case .success(let data):
                 completion(data)

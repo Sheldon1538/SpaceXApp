@@ -95,10 +95,10 @@ extension RocketsViewController: UICollectionViewDelegate, UICollectionViewDeleg
         cell.firstLaunchLabel.text = rockets[indexPath.row].firstLaunchDate
         cell.rocketDescriptionLabel.text = rockets[indexPath.row].rocketDescription
         if let imageURL = rockets[indexPath.row].images.first.flatMap({$0}) {
-            cell.imageURL = imageURL
+            cell.tag = indexPath.row
             viewModel.loadImageData(url: imageURL) { (data) in
-                if imageURL == cell.imageURL {
-                    DispatchQueue.main.async {
+                DispatchQueue.main.async {
+                    if indexPath.row == cell.tag {
                         if let image = UIImage(data: data) {
                             cell.rocketImageView.image = image
                         }

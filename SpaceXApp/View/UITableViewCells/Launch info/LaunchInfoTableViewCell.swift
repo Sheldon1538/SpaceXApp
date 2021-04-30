@@ -77,7 +77,7 @@ class LaunchInfoTableViewCell: UITableViewCell {
             valueLabel.text = data.details
         case 1:
             nameLabel.text = "Launch site"
-            valueLabel.text = data.siteName
+            valueLabel.text = data.launchpadName
         case 2:
             nameLabel.text = "Flight number"
             valueLabel.text = data.flightNumber

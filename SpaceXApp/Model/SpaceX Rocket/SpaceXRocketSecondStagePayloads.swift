@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SpaceXRocketSecondStagePayloads: Codable {
+struct SpaceXRocketSecondStagePayloads: Decodable {
     var compositeFairing: SpaceXRocketSecondStagePaylodsCompositeFairings?
     var option: String?
     

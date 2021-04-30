@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SpaceXRocketPayloadWeight: Codable {
+struct SpaceXRocketPayloadWeight: Decodable {
     var id: String?
     var name: String?
     var kg: Int?

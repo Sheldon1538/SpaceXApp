@@ -9,14 +9,15 @@
 import Foundation
 
 final class LaunchViewModel {
-    private let launch: SpaceXLaunch
+    private let launch: SpaceXLaunchV4Doc
+    private let apiService: APIClient
     
     var imageURL: String {
-        return launch.links?.missionPatchSmall ?? ""
+        return launch.links?.patch?.small ?? ""
     }
     
     var flightNumber: String {
-        return "\(launch.flightNumber ?? 0)"
+        return "\(launch.flight_number ?? 0)"
     }
     
     var details: String {
@@ -24,30 +25,29 @@ final class LaunchViewModel {
     }
     
     var missionName: String {
-        return launch.missionName ?? "N/A"
+        return launch.name ?? "N/A"
     }
     
-    var rocketName: String {
-        return launch.rocket?.rocketName ?? "N/A"
-    }
+    var rocketName: String
     
     var date: String {
-        return Date().getDateStringInDisplayFormat(utcString: launch.launchDateUtc ?? "N/A", format: DateFormats.spaceXLaunch) ?? "N/A"
+        return Date().getDateStringInDisplayFormat(utcString: launch.date_utc ?? "N/A", format: DateFormats.spaceXLaunch) ?? "N/A"
     }
     
-    var siteName: String {
-        return launch.launchSite?.siteName ?? "N/A"
-    }
+    var launchpadName: String
     
     var result: String {
         if launch.upcoming ?? false {
             return "Upcoming launch"
         } else {
-            return launch.launchSuccess ?? false ? "Successful launch" : "Failed launch"
+            return launch.success ?? false ? "Successful launch" : "Failed launch"
         }
     }
     
-    init(launch: SpaceXLaunch) {
+    init(launch: SpaceXLaunchV4Doc, apiService: APIClient, rocketName: String? = nil, launchpadName: String? = nil) {
         self.launch = launch
+        self.apiService = apiService
+        self.launchpadName = launchpadName ?? "N/A"
+        self.rocketName = rocketName ?? "N/A"
     }
 }

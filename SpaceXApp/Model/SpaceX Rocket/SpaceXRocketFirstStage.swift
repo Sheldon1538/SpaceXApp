@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SpaceXRocketFirstStage: Codable {
+struct SpaceXRocketFirstStage: Decodable {
     var thrustSeaLevel: SpaceXRocketThrust?
     var thrustVacuum: SpaceXRocketThrust?
     var reusable: Bool?

@@ -9,12 +9,15 @@
 import Foundation
 
 enum SpaceXAPIData {
-    static let baseURL = "https://api.spacexdata.com"
+    static let scheme = "https"
+    static let baseURL = "api.spacexdata.com"
     
     enum Endpoint {
         static let latest = "/latest"
         static let launches = "/launches"
         static let rockets = "/rockets"
+        static let rocket = "/rockets"
+        static let launchpads = "/launchpads"
     }
     
     enum Version {

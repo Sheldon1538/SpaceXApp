@@ -99,9 +99,10 @@ extension LaunchesViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LaunchPreviewCollectionViewCell.identifier, for: indexPath) as? LaunchPreviewCollectionViewCell else { print("Error while configuring the cell."); return UICollectionViewCell() }
         cell.configureWith(data: spaceXLaunches[indexPath.row])
+        cell.tag = indexPath.row
         viewModel.loadImageData(url: spaceXLaunches[indexPath.row].imageURL) { (data) in
-            if self.spaceXLaunches[indexPath.row].imageURL == cell.imageUrl {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                if indexPath.row == cell.tag {
                     if let image = UIImage(data: data) { cell.rocketImageView.image = image }
                 }
             }

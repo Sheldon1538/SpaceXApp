@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SpaceXRocketThrust: Codable {
+struct SpaceXRocketThrust: Decodable {
     var kn: Int?
     var lbf: Int?
     

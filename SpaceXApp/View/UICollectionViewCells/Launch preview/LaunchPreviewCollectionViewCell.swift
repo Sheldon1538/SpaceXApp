@@ -10,8 +10,6 @@ import UIKit
 
 class LaunchPreviewCollectionViewCell: UICollectionViewCell {
     
-    var imageUrl = ""
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -20,11 +18,6 @@ class LaunchPreviewCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        rocketImageView.image = nil
     }
     
     class var identifier: String {
@@ -122,10 +115,10 @@ class LaunchPreviewCollectionViewCell: UICollectionViewCell {
     }
     
     func configureWith(data: LaunchViewModel) {
-        imageUrl              = data.imageURL
+        rocketImageView.image = nil
         missionNameLabel.text = data.missionName
         rocketNameLabel.text  = data.rocketName
-        siteNameLabel.text    = data.siteName
+        siteNameLabel.text    = data.launchpadName
         launchDateLabel.text  = data.date
         resultLabel.text      = data.result
     }

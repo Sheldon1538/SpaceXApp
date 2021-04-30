@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SpaceXRocketLandingLegs: Codable {
+struct SpaceXRocketLandingLegs: Decodable {
     var number: Int?
     var meterial: String?
 }

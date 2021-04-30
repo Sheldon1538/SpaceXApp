@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SpaceXLaunch: Codable {
+struct SpaceXLaunch: Decodable {
     let flightNumber:          Int?
     let missionName:           String?
     let missionID:             [String?]

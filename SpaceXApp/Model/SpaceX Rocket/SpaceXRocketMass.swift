@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SpaceXRocketMass: Codable {
+struct SpaceXRocketMass: Decodable {
     var kg: Double?
     var lb: Double?
 }

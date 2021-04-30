@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SpaceXRocketSecondStagePaylodsCompositeFairings: Codable {
+struct SpaceXRocketSecondStagePaylodsCompositeFairings: Decodable {
     var height: SpaceXRocketSize?
     var diameter: SpaceXRocketSize?
 }

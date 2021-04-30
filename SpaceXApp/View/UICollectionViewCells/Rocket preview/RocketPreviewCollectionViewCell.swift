@@ -9,7 +9,6 @@
 import UIKit
 
 class RocketPreviewCollectionViewCell: UICollectionViewCell {
-    var imageURL: String!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

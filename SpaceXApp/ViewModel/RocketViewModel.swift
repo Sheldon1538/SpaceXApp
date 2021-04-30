@@ -8,10 +8,10 @@
 
 import Foundation
 
-final class RocketViewModel {
+final class RocketViewModel: ViewModelImageRepresentable {
     private let rocket: SpaceXRocket
     
-    private let networkService: APIManager
+    private let apiService: APIClient
     
     private let imageCache = NSCache<NSString, NSData>()
     
@@ -73,16 +73,16 @@ final class RocketViewModel {
     }
     
     
-    init(rocket: SpaceXRocket, networkService: APIManager) {
+    init(rocket: SpaceXRocket, apiService: APIClient) {
         self.rocket = rocket
-        self.networkService = networkService
+        self.apiService = apiService
     }
     
     func loadImageData(url: String, completion: @escaping(Data) -> Void) {
         if let imageDataFromCache = imageCache.object(forKey: NSString(string: url)) {
             completion(imageDataFromCache as Data)
         } else {
-            networkService.loadData(urlString: url) { (result) in
+            apiService.loadData(url: url) { (result) in
                 switch result {
                 case .success(let data):
                     self.imageCache.setObject(data as NSData, forKey: NSString(string: url))

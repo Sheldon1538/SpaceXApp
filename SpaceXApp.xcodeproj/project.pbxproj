@@ -21,11 +21,9 @@
 		B5184F30241CE12500C7931F /* SpaceXLaunchSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F2F241CE12500C7931F /* SpaceXLaunchSite.swift */; };
 		B5184F32241CE20200C7931F /* SpaceXLaunchLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F31241CE20200C7931F /* SpaceXLaunchLinks.swift */; };
 		B5184F34241CE45A00C7931F /* SpaceXLaunchTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F33241CE45A00C7931F /* SpaceXLaunchTimeline.swift */; };
-		B5184F3C241D44A300C7931F /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F3B241D44A300C7931F /* APIManager.swift */; };
 		B5184F40241D4DFC00C7931F /* SpaceXAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F3F241D4DFC00C7931F /* SpaceXAPIData.swift */; };
 		B5184F44241D816C00C7931F /* LaunchPreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F43241D816C00C7931F /* LaunchPreviewCollectionViewCell.swift */; };
 		B5184F4B241E5F5700C7931F /* DetailedInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F4A241E5F5700C7931F /* DetailedInfoLabel.swift */; };
-		B5184F4D241E7ED100C7931F /* SpaceXGetLaunchesURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F4C241E7ED100C7931F /* SpaceXGetLaunchesURL.swift */; };
 		B5184F50241EBB7A00C7931F /* DateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F4F241EBB7A00C7931F /* DateFormats.swift */; };
 		B5184F53241ECF4700C7931F /* DetailedLaunchInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F52241ECF4700C7931F /* DetailedLaunchInformationViewController.swift */; };
 		B5184F57241F727D00C7931F /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5184F56241F727D00C7931F /* UIView + Extension.swift */; };
@@ -45,7 +43,11 @@
 		B569B54225D7DEB80021B11D /* SpaceXRocketEnginesISP.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569B54125D7DEB80021B11D /* SpaceXRocketEnginesISP.swift */; };
 		B569B54525D7DF1D0021B11D /* SpaceXRocketLandingLegs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569B54425D7DF1D0021B11D /* SpaceXRocketLandingLegs.swift */; };
 		B569B54825D7DF580021B11D /* SpaceXRocketPayloadWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569B54725D7DF580021B11D /* SpaceXRocketPayloadWeight.swift */; };
-		B56BF485242142EE00A0EF03 /* SpaceXDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56BF484242142EE00A0EF03 /* SpaceXDataProvider.swift */; };
+		B56CFA83263B21C100B9C75A /* SpaceXLaunchpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56CFA82263B21C000B9C75A /* SpaceXLaunchpad.swift */; };
+		B56CFA87263B22B400B9C75A /* SpaceXAPIQueryLaunchesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56CFA86263B22B400B9C75A /* SpaceXAPIQueryLaunchesRequest.swift */; };
+		B56CFA8A263B22E500B9C75A /* SpaceXRocketsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56CFA89263B22E500B9C75A /* SpaceXRocketsRequest.swift */; };
+		B56CFA8D263B238E00B9C75A /* SpaceXAPILaunchesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56CFA8C263B238E00B9C75A /* SpaceXAPILaunchesRequest.swift */; };
+		B56CFA90263B23D300B9C75A /* SpaceXAPIGetLaunchpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56CFA8F263B23D300B9C75A /* SpaceXAPIGetLaunchpad.swift */; };
 		B5754837260363E600DEC299 /* RocketStageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5754836260363E600DEC299 /* RocketStageCollectionViewCell.swift */; };
 		B575483C2603675C00DEC299 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B575483B2603675C00DEC299 /* HeaderCollectionReusableView.swift */; };
 		B5754840260378E800DEC299 /* GenericNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B575483F260378E800DEC299 /* GenericNameLabel.swift */; };
@@ -54,10 +56,22 @@
 		B58D7D56260200F900F3E861 /* RocketSizeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58D7D55260200F900F3E861 /* RocketSizeCollectionViewCell.swift */; };
 		B58D7D5B26023F2C00F3E861 /* CountryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58D7D5A26023F2C00F3E861 /* CountryCollectionViewCell.swift */; };
 		B590743A2631B275002D9642 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59074392631B275002D9642 /* LaunchViewModel.swift */; };
+		B59E7576263822470037D16D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E7575263822460037D16D /* APIClient.swift */; };
+		B59E7581263863BB0037D16D /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E7580263863BA0037D16D /* APIRequest.swift */; };
+		B59E7584263863DF0037D16D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E7583263863DF0037D16D /* APIService.swift */; };
+		B59E7588263870B00037D16D /* SpaceXLaunchV4.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E7587263870B00037D16D /* SpaceXLaunchV4.swift */; };
+		B59E758B263871750037D16D /* SpaceXLaunchV4Doc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E758A263871750037D16D /* SpaceXLaunchV4Doc.swift */; };
+		B59E758E263890EE0037D16D /* SpaceXLaunchV4Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E758D263890ED0037D16D /* SpaceXLaunchV4Links.swift */; };
+		B59E7591263891ED0037D16D /* SpaceXV4Patch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E7590263891ED0037D16D /* SpaceXV4Patch.swift */; };
+		B59E7594263892430037D16D /* SpaceXV4Reddit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E7593263892430037D16D /* SpaceXV4Reddit.swift */; };
+		B59E7597263892A80037D16D /* SpaceXV4Flickr.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E7596263892A80037D16D /* SpaceXV4Flickr.swift */; };
+		B59E759A2638A55F0037D16D /* SpaceXLaunchV4Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E75992638A55F0037D16D /* SpaceXLaunchV4Failure.swift */; };
+		B59E759D2638A5A80037D16D /* SpaceXLaunchV4Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E759C2638A5A80037D16D /* SpaceXLaunchV4Core.swift */; };
 		B5A8823925CD6408008D1047 /* RocketPreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A8823825CD6408008D1047 /* RocketPreviewCollectionViewCell.swift */; };
 		B5AE8C6325D7FD1500B3A84E /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AE8C6225D7FD1500B3A84E /* PaddingLabel.swift */; };
 		B5E10F7D25EFACE200854561 /* RocketDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E10F7C25EFACE100854561 /* RocketDetailsViewController.swift */; };
 		B5E6ED3F25CAA5BD00F5D4E0 /* RocketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E6ED3E25CAA5BD00F5D4E0 /* RocketsViewController.swift */; };
+		B5F36AF6263C38E1004CFCD2 /* SpaceXAPIGetRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F36AF5263C38E1004CFCD2 /* SpaceXAPIGetRocket.swift */; };
 		B5F8EA8B2632E7EC00B2BBF5 /* RocketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F8EA8A2632E7EC00B2BBF5 /* RocketsViewModel.swift */; };
 		B5F8EA8E2632EB4E00B2BBF5 /* RocketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F8EA8D2632EB4E00B2BBF5 /* RocketViewModel.swift */; };
 		B5F9F795241C0F8C00CADA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9F794241C0F8C00CADA76 /* AppDelegate.swift */; };
@@ -82,11 +96,9 @@
 		B5184F2F241CE12500C7931F /* SpaceXLaunchSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchSite.swift; sourceTree = "<group>"; };
 		B5184F31241CE20200C7931F /* SpaceXLaunchLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchLinks.swift; sourceTree = "<group>"; };
 		B5184F33241CE45A00C7931F /* SpaceXLaunchTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchTimeline.swift; sourceTree = "<group>"; };
-		B5184F3B241D44A300C7931F /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		B5184F3F241D4DFC00C7931F /* SpaceXAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXAPIData.swift; sourceTree = "<group>"; };
 		B5184F43241D816C00C7931F /* LaunchPreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5184F4A241E5F5700C7931F /* DetailedInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInfoLabel.swift; sourceTree = "<group>"; };
-		B5184F4C241E7ED100C7931F /* SpaceXGetLaunchesURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXGetLaunchesURL.swift; sourceTree = "<group>"; };
 		B5184F4F241EBB7A00C7931F /* DateFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormats.swift; sourceTree = "<group>"; };
 		B5184F52241ECF4700C7931F /* DetailedLaunchInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedLaunchInformationViewController.swift; sourceTree = "<group>"; };
 		B5184F56241F727D00C7931F /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
@@ -106,7 +118,11 @@
 		B569B54125D7DEB80021B11D /* SpaceXRocketEnginesISP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXRocketEnginesISP.swift; sourceTree = "<group>"; };
 		B569B54425D7DF1D0021B11D /* SpaceXRocketLandingLegs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXRocketLandingLegs.swift; sourceTree = "<group>"; };
 		B569B54725D7DF580021B11D /* SpaceXRocketPayloadWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXRocketPayloadWeight.swift; sourceTree = "<group>"; };
-		B56BF484242142EE00A0EF03 /* SpaceXDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXDataProvider.swift; sourceTree = "<group>"; };
+		B56CFA82263B21C000B9C75A /* SpaceXLaunchpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchpad.swift; sourceTree = "<group>"; };
+		B56CFA86263B22B400B9C75A /* SpaceXAPIQueryLaunchesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXAPIQueryLaunchesRequest.swift; sourceTree = "<group>"; };
+		B56CFA89263B22E500B9C75A /* SpaceXRocketsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXRocketsRequest.swift; sourceTree = "<group>"; };
+		B56CFA8C263B238E00B9C75A /* SpaceXAPILaunchesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXAPILaunchesRequest.swift; sourceTree = "<group>"; };
+		B56CFA8F263B23D300B9C75A /* SpaceXAPIGetLaunchpad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXAPIGetLaunchpad.swift; sourceTree = "<group>"; };
 		B5754836260363E600DEC299 /* RocketStageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketStageCollectionViewCell.swift; sourceTree = "<group>"; };
 		B575483B2603675C00DEC299 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		B575483F260378E800DEC299 /* GenericNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericNameLabel.swift; sourceTree = "<group>"; };
@@ -115,10 +131,22 @@
 		B58D7D55260200F900F3E861 /* RocketSizeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketSizeCollectionViewCell.swift; sourceTree = "<group>"; };
 		B58D7D5A26023F2C00F3E861 /* CountryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B59074392631B275002D9642 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
+		B59E7575263822460037D16D /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		B59E7580263863BA0037D16D /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		B59E7583263863DF0037D16D /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		B59E7587263870B00037D16D /* SpaceXLaunchV4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchV4.swift; sourceTree = "<group>"; };
+		B59E758A263871750037D16D /* SpaceXLaunchV4Doc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchV4Doc.swift; sourceTree = "<group>"; };
+		B59E758D263890ED0037D16D /* SpaceXLaunchV4Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchV4Links.swift; sourceTree = "<group>"; };
+		B59E7590263891ED0037D16D /* SpaceXV4Patch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXV4Patch.swift; sourceTree = "<group>"; };
+		B59E7593263892430037D16D /* SpaceXV4Reddit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXV4Reddit.swift; sourceTree = "<group>"; };
+		B59E7596263892A80037D16D /* SpaceXV4Flickr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXV4Flickr.swift; sourceTree = "<group>"; };
+		B59E75992638A55F0037D16D /* SpaceXLaunchV4Failure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchV4Failure.swift; sourceTree = "<group>"; };
+		B59E759C2638A5A80037D16D /* SpaceXLaunchV4Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXLaunchV4Core.swift; sourceTree = "<group>"; };
 		B5A8823825CD6408008D1047 /* RocketPreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketPreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5AE8C6225D7FD1500B3A84E /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		B5E10F7C25EFACE100854561 /* RocketDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDetailsViewController.swift; sourceTree = "<group>"; };
 		B5E6ED3E25CAA5BD00F5D4E0 /* RocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsViewController.swift; sourceTree = "<group>"; };
+		B5F36AF5263C38E1004CFCD2 /* SpaceXAPIGetRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXAPIGetRocket.swift; sourceTree = "<group>"; };
 		B5F8EA8A2632E7EC00B2BBF5 /* RocketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsViewModel.swift; sourceTree = "<group>"; };
 		B5F8EA8D2632EB4E00B2BBF5 /* RocketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketViewModel.swift; sourceTree = "<group>"; };
 		B5F9F791241C0F8C00CADA76 /* SpaceXApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +191,7 @@
 		B5184F35241CFAA300C7931F /* SpaceX Launch */ = {
 			isa = PBXGroup;
 			children = (
+				B59E7586263870740037D16D /* v4 */,
 				B5184F1D241CD21800C7931F /* SpaceXLaunch.swift */,
 				B5184F2D241CE09900C7931F /* SpaceXLaunchTelemetry.swift */,
 				B5184F2F241CE12500C7931F /* SpaceXLaunchSite.swift */,
@@ -189,8 +218,8 @@
 		B5184F37241D345D00C7931F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				B5184F3B241D44A300C7931F /* APIManager.swift */,
-				B56BF484242142EE00A0EF03 /* SpaceXDataProvider.swift */,
+				B56CFA85263B228000B9C75A /* API Requests */,
+				B59E7574263822230037D16D /* API Client */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -199,7 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				B5184F3F241D4DFC00C7931F /* SpaceXAPIData.swift */,
-				B5184F4C241E7ED100C7931F /* SpaceXGetLaunchesURL.swift */,
 			);
 			path = "API data";
 			sourceTree = "<group>";
@@ -295,6 +323,26 @@
 			path = "SpaceX Rocket";
 			sourceTree = "<group>";
 		};
+		B56CFA81263B207700B9C75A /* Launchpad */ = {
+			isa = PBXGroup;
+			children = (
+				B56CFA82263B21C000B9C75A /* SpaceXLaunchpad.swift */,
+			);
+			path = Launchpad;
+			sourceTree = "<group>";
+		};
+		B56CFA85263B228000B9C75A /* API Requests */ = {
+			isa = PBXGroup;
+			children = (
+				B56CFA86263B22B400B9C75A /* SpaceXAPIQueryLaunchesRequest.swift */,
+				B56CFA89263B22E500B9C75A /* SpaceXRocketsRequest.swift */,
+				B56CFA8C263B238E00B9C75A /* SpaceXAPILaunchesRequest.swift */,
+				B56CFA8F263B23D300B9C75A /* SpaceXAPIGetLaunchpad.swift */,
+				B5F36AF5263C38E1004CFCD2 /* SpaceXAPIGetRocket.swift */,
+			);
+			path = "API Requests";
+			sourceTree = "<group>";
+		};
 		B5754835260363D000DEC299 /* Rocket stage cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +373,31 @@
 				B58D7D5A26023F2C00F3E861 /* CountryCollectionViewCell.swift */,
 			);
 			path = "Country cell";
+			sourceTree = "<group>";
+		};
+		B59E7574263822230037D16D /* API Client */ = {
+			isa = PBXGroup;
+			children = (
+				B59E7575263822460037D16D /* APIClient.swift */,
+				B59E7580263863BA0037D16D /* APIRequest.swift */,
+				B59E7583263863DF0037D16D /* APIService.swift */,
+			);
+			path = "API Client";
+			sourceTree = "<group>";
+		};
+		B59E7586263870740037D16D /* v4 */ = {
+			isa = PBXGroup;
+			children = (
+				B59E7587263870B00037D16D /* SpaceXLaunchV4.swift */,
+				B59E758A263871750037D16D /* SpaceXLaunchV4Doc.swift */,
+				B59E758D263890ED0037D16D /* SpaceXLaunchV4Links.swift */,
+				B59E7590263891ED0037D16D /* SpaceXV4Patch.swift */,
+				B59E7593263892430037D16D /* SpaceXV4Reddit.swift */,
+				B59E7596263892A80037D16D /* SpaceXV4Flickr.swift */,
+				B59E75992638A55F0037D16D /* SpaceXLaunchV4Failure.swift */,
+				B59E759C2638A5A80037D16D /* SpaceXLaunchV4Core.swift */,
+			);
+			path = v4;
 			sourceTree = "<group>";
 		};
 		B5A8823725CD63EB008D1047 /* Rocket preview */ = {
@@ -393,6 +466,7 @@
 		B5F9F7A8241C187D00CADA76 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B56CFA81263B207700B9C75A /* Launchpad */,
 				B569B52525D7D37F0021B11D /* SpaceX Rocket */,
 				B5184F3E241D4DD800C7931F /* API data */,
 				B5184F35241CFAA300C7931F /* SpaceX Launch */,
@@ -505,11 +579,14 @@
 				B569B54825D7DF580021B11D /* SpaceXRocketPayloadWeight.swift in Sources */,
 				B5184F32241CE20200C7931F /* SpaceXLaunchLinks.swift in Sources */,
 				B5F8EA8B2632E7EC00B2BBF5 /* RocketsViewModel.swift in Sources */,
+				B59E7588263870B00037D16D /* SpaceXLaunchV4.swift in Sources */,
+				B56CFA87263B22B400B9C75A /* SpaceXAPIQueryLaunchesRequest.swift in Sources */,
 				B5F8EA8E2632EB4E00B2BBF5 /* RocketViewModel.swift in Sources */,
 				B5184F2C241CDF6000C7931F /* SpaceXLaunchRocketFairings.swift in Sources */,
 				B569B53325D7D8FA0021B11D /* SpaceXRocketThrust.swift in Sources */,
 				B569B53F25D7DCD60021B11D /* SpaceXRocketEngines.swift in Sources */,
-				B56BF485242142EE00A0EF03 /* SpaceXDataProvider.swift in Sources */,
+				B59E758B263871750037D16D /* SpaceXLaunchV4Doc.swift in Sources */,
+				B56CFA90263B23D300B9C75A /* SpaceXAPIGetLaunchpad.swift in Sources */,
 				B5184F40241D4DFC00C7931F /* SpaceXAPIData.swift in Sources */,
 				B54D634226073F7B00E110DE /* RocketLaunchCostCollectionViewCell.swift in Sources */,
 				B58D7D5B26023F2C00F3E861 /* CountryCollectionViewCell.swift in Sources */,
@@ -517,43 +594,54 @@
 				B5184F30241CE12500C7931F /* SpaceXLaunchSite.swift in Sources */,
 				B569B52A25D7D73B0021B11D /* SpaceXRocketSize.swift in Sources */,
 				B569B52D25D7D7700021B11D /* SpaceXRocketMass.swift in Sources */,
-				B5184F3C241D44A300C7931F /* APIManager.swift in Sources */,
 				B5184F57241F727D00C7931F /* UIView + Extension.swift in Sources */,
 				B569B54525D7DF1D0021B11D /* SpaceXRocketLandingLegs.swift in Sources */,
 				B590743A2631B275002D9642 /* LaunchViewModel.swift in Sources */,
 				B5184F5C241F79DE00C7931F /* LaunchInfoTableViewCell.swift in Sources */,
 				B575483C2603675C00DEC299 /* HeaderCollectionReusableView.swift in Sources */,
-				B5184F4D241E7ED100C7931F /* SpaceXGetLaunchesURL.swift in Sources */,
+				B59E7594263892430037D16D /* SpaceXV4Reddit.swift in Sources */,
 				B5184F44241D816C00C7931F /* LaunchPreviewCollectionViewCell.swift in Sources */,
+				B59E7591263891ED0037D16D /* SpaceXV4Patch.swift in Sources */,
 				B5184F20241CD6D600C7931F /* SpaceXLaunchRocket.swift in Sources */,
 				B569B54225D7DEB80021B11D /* SpaceXRocketEnginesISP.swift in Sources */,
 				B5E6ED3F25CAA5BD00F5D4E0 /* RocketsViewController.swift in Sources */,
 				B5184F59241F772400C7931F /* Date + Extension.swift in Sources */,
+				B56CFA83263B21C100B9C75A /* SpaceXLaunchpad.swift in Sources */,
 				B569B53925D7DB4B0021B11D /* SpaceXRocketSecondStagePayloads.swift in Sources */,
 				B5184F28241CDA9C00C7931F /* SpaceXLaunchRocketSecondStagePayload.swift in Sources */,
 				B569B53625D7D9A60021B11D /* SpaceXRocketSecondStage.swift in Sources */,
 				B5F9F799241C0F8C00CADA76 /* LaunchesViewController.swift in Sources */,
+				B59E7581263863BB0037D16D /* APIRequest.swift in Sources */,
 				B5184F24241CD80500C7931F /* SpaceXLaunchRocketFirstStageCore.swift in Sources */,
 				B5184F4B241E5F5700C7931F /* DetailedInfoLabel.swift in Sources */,
 				B57548432603A8DF00DEC299 /* GenericValueLabel.swift in Sources */,
+				B59E758E263890EE0037D16D /* SpaceXLaunchV4Links.swift in Sources */,
+				B56CFA8A263B22E500B9C75A /* SpaceXRocketsRequest.swift in Sources */,
 				B5184F26241CDA1F00C7931F /* SpaceXLaunchRocketSecondStage.swift in Sources */,
 				B5184F22241CD7A200C7931F /* SpaceXLaunchRocketFirstStage.swift in Sources */,
+				B59E759A2638A55F0037D16D /* SpaceXLaunchV4Failure.swift in Sources */,
 				B5184F34241CE45A00C7931F /* SpaceXLaunchTimeline.swift in Sources */,
 				B5184F53241ECF4700C7931F /* DetailedLaunchInformationViewController.swift in Sources */,
 				B50C1EB4262CB7DE001CFD4E /* LaunchesViewModel.swift in Sources */,
+				B56CFA8D263B238E00B9C75A /* SpaceXAPILaunchesRequest.swift in Sources */,
 				B5184F2E241CE09900C7931F /* SpaceXLaunchTelemetry.swift in Sources */,
 				B5AE8C6325D7FD1500B3A84E /* PaddingLabel.swift in Sources */,
 				B5E10F7D25EFACE200854561 /* RocketDetailsViewController.swift in Sources */,
+				B5F36AF6263C38E1004CFCD2 /* SpaceXAPIGetRocket.swift in Sources */,
+				B59E7584263863DF0037D16D /* APIService.swift in Sources */,
 				B58D7D56260200F900F3E861 /* RocketSizeCollectionViewCell.swift in Sources */,
+				B59E7576263822470037D16D /* APIClient.swift in Sources */,
 				B54D63452608C6DA00E110DE /* RocketDetailsSectionLayoutProvider.swift in Sources */,
 				B5137D3025F790EB00E265E0 /* ImageCollectionViewCell.swift in Sources */,
 				B58D7D51260127B000F3E861 /* TextCollectionViewCell.swift in Sources */,
 				B5754837260363E600DEC299 /* RocketStageCollectionViewCell.swift in Sources */,
+				B59E7597263892A80037D16D /* SpaceXV4Flickr.swift in Sources */,
 				B5184F50241EBB7A00C7931F /* DateFormats.swift in Sources */,
 				B5F9F795241C0F8C00CADA76 /* AppDelegate.swift in Sources */,
 				B569B53C25D7DBE20021B11D /* SpaceXRocketSecondStagePaylodsCompositeFairings.swift in Sources */,
 				B5A8823925CD6408008D1047 /* RocketPreviewCollectionViewCell.swift in Sources */,
 				B569B52725D7D3DB0021B11D /* SpaceXRocket.swift in Sources */,
+				B59E759D2638A5A80037D16D /* SpaceXLaunchV4Core.swift in Sources */,
 				B5184F2A241CDC3100C7931F /* SpaceXLaunchRocketSecondStagePayloadOrbitParams.swift in Sources */,
 				B5F9F797241C0F8C00CADA76 /* SceneDelegate.swift in Sources */,
 				B569B53025D7D79F0021B11D /* SpaceXRocketFirstStage.swift in Sources */,

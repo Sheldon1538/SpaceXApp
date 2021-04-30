@@ -19,17 +19,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let apiManager = APIManager()
+        let apiManager = APIService()
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        let launchesViewController = LaunchesViewController(viewModel: LaunchesViewModel(networkService: apiManager))
+        let launchesViewController = LaunchesViewController(viewModel: LaunchesViewModel(apiService: apiManager))
         let launchesNavigationController = UINavigationController(rootViewController: launchesViewController)
         launchesNavigationController.navigationBar.prefersLargeTitles = false
         launchesNavigationController.tabBarItem = UITabBarItem(title: "Launches", image: UIImage(systemName: "lineweight")?.withRenderingMode(.automatic), selectedImage: UIImage(systemName: "lineweight")?.withRenderingMode(.automatic))
         
-        let rocketsNavigationController = UINavigationController(rootViewController: RocketsViewController(viewModel: RocketsViewModel(networkService: apiManager)))
+        let rocketsNavigationController = UINavigationController(rootViewController: RocketsViewController(viewModel: RocketsViewModel(apiService: apiManager)))
         rocketsNavigationController.navigationBar.prefersLargeTitles = false
         rocketsNavigationController.tabBarItem = UITabBarItem(title: "Rockets", image: UIImage(systemName: "folder")?.withRenderingMode(.automatic), selectedImage: UIImage(systemName: "linewight")?.withRenderingMode(.automatic))
         
